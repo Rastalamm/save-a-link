@@ -3,6 +3,6 @@
 angular.module('myApp', [])
   .controller('LinksController', ['$scope',
     function ($scope){
-      $scope.Links = Links;
+      $scope.Links = 'Links of the all';
     }
-    ])
+  ])

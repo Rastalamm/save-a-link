@@ -1,8 +1,10 @@
-<div class="row" id="all_link_container">
+<div ng-include src="'views/filter-bar.html'"></div>
+
+<div class="row" id="all_link_container" ng-controller="LinksController">
 
   <!-- for each link create the below div structure -->
 
-  <div class="small-12 each_link_container">
+  <div class="small-12 each_link_container" ng-repeat="Link in Links">
     <div class="small-2 medium-4 link_image_container">
       <!-- could be a background image -->
       <img class="link_image_container" src="" alt="">
