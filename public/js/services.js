@@ -3,7 +3,7 @@
 (function(){
 
   function LinkService(){
-    this.links = [
+    this.bookmarks = [
       {
         id : 1,
         title : 'The Google',
@@ -27,7 +27,7 @@
       },
       {
         id : 4,
-        title : 'Linked In',
+        title : 'LinkedIn',
         url : 'www.linkedin.com',
         description : 'Not quite sure the point of this one',
         topic : 'Social'
@@ -35,31 +35,31 @@
     ];
 
     this.getLinks = function(){
-      return this.links;
-    }
+      return this.bookmarks;
+    };
 
     this.getALink = function(){
-      return this.links.filter(function(link){
-        return book.id === id;
+      return this.bookmarks.filter(function(bookmark){
+        return bookmark.id === id;
       })
-      .reduce(function(_, link){
-        return link;
+      .reduce(function(_, bookmark){
+        return bookmark;
       });
-    }
+    };
 
-    this.addALink = function(link){
-      var nextId = this.books.length + 1;
-      var new_link = {
+    this.addALink = function(bookmark){
+      var nextId = this.bookmarks.length + 1;
+      var new_bookmark = {
         id : nextId,
-        title : link.title,
-        url : link.url,
-        description : link.description,
-        topic : link.topic
+        title : bookmark.title,
+        url : bookmark.url,
+        description : bookmark.description,
+        topic : bookmark.topic
       }
 
-      this.links.push(new_link);
+      this.bookmarks.push(new_bookmark);
     };
-  }
+  };
 
 
   angular.module('myApp')

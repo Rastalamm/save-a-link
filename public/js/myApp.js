@@ -18,7 +18,7 @@ angular.module('myApp', [
         conroller : 'LinksController'
       })
       .when('/individual', {
-        templateUrl : 'views/individual.html'
+        templateUrl : 'views/individual-post.html'
       })
       .otherwise({
         templateUrl : 'views/404.html'
