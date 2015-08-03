@@ -1,23 +1,24 @@
 'use strict'
 
 angular.module('myApp', [
-  'ngRoute'
+  'ngRoute',
+  'LinksController'
   ])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
 
-    // $locationProvider.html5Mode({
-    //   enabled : true,
-    //   requireBase : false
-    // });
+    $locationProvider.html5Mode({
+      enabled : true,
+      requireBase : false
+    });
 
     $routeProvider
       .when('/', {
-        templateUrl : 'index.html'
-      })
-      .when('/all', {
         templateUrl : 'views/linklist.html',
-        controller : 'LinksController'
+        conroller : 'LinksController'
+      })
+      .when('/individual', {
+        templateUrl : 'views/individual.html'
       })
       .otherwise({
         templateUrl : 'views/404.html'

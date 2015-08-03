@@ -4,7 +4,7 @@
 
   <!-- for each link create the below div structure -->
 
-  <div class="small-12 each_link_container" ng-repeat="Link in Links">
+  <div class="small-12 each_link_container" ng-repeat"link in LinkService.links">
     <div class="small-2 medium-4 link_image_container">
       <!-- could be a background image -->
       <img class="link_image_container" src="" alt="">
@@ -13,10 +13,10 @@
     <div class="small-10 medium-8 link_content_container">
       <div class="row">
         <div class="small-12 link_heading_container">
-          <h1 class="link_heading">HEADING GOES HERE</h1>
+          <h1 class="link_heading">{{link.title}}</h1>
         </div>
         <div class="small-3 link_url_container">
-          LINK GOES HERE
+          {{link.url}}
         </div>
         <div class="small-3 link_topic_container">
           TOPIC GOES HERE
@@ -28,7 +28,7 @@
           # OF COMMENTS HERE
         </div>
         <div class="small-12 link_description_container">
-          <p class="link_description">DESCRIPTION OF THE LINK GOES HERE</p>
+          <p class="link_description">{{link.description}}</p>
         </div>
       </div>
     </div>

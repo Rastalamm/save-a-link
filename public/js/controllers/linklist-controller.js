@@ -1,8 +1,11 @@
 'use strict'
 
-angular.module('myApp', [])
-  .controller('LinksController', ['$scope',
-    function ($scope){
-      $scope.Links = 'Links of the all';
-    }
-  ])
+var LinksController = angular.module('LinksController', [])
+
+  LinksController
+    .controller('LinksController', ['$scope', 'LinkService',
+      function ($scope, LinkService){
+        console.log(LinkService.links);
+        $scope.LinkService = LinkService;
+      }
+    ])
