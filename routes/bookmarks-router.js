@@ -16,7 +16,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
   Bookmark.findAll().then(function (bookmarks){
     res.send(bookmarks);
-    console.log('no bookmarks');
+
   }).catch(function (err) {
       res.send(err);
       throw err;
@@ -26,7 +26,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 })
 
 router.post('/', function (req, res){
-  console.log('what tis happening', req.body);
+
   Bookmark.create({
     title : req.body.title,
     url : req.body.url,

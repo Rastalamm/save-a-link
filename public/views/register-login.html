@@ -1,0 +1,20 @@
+<div class="entry_page_conatiner row" ng-controller="RegisterLoginController">
+
+  <div class="register_container small-6 columns">
+    <form action="">
+      <input type="text" placeholder="Username" ng-model="new_user.username">
+      <input type="text" placeholder="Password" ng-model="new_user.password">
+      <button type="button" ng-click="RegisterService.createUser(new_user.username, new_user.password)">Register</button>
+    </form>
+  </div>
+
+  <div class="login_container small-6 columns">
+    <form action="">
+      <input type="text" placeholder="Username" ng-model="login.username">
+      <input type="text" placeholder="Password" ng-model="login.password">
+      <button type="button" ng-click="LoginService.loginUser(login.username, login.password)">Login</button>
+    </form>
+  </div>
+
+
+</div>

@@ -25,10 +25,6 @@ function LinkService($http){
       topic_id : 1
     }
 
-    // this.bookmarks.push(new_bookmark)
-
-    //Create a http post request and see if data is coming in on the server
-
     $http.post('/api/bookmarks', new_bookmark).then(function (res){
       console.log('is the post request working?', new_bookmark);
       console.log(res, 'res');
@@ -38,5 +34,19 @@ function LinkService($http){
 
 }
 
+  .service('RegisterService', ['$http', RegisterService]);
+  .service('LoginService', ['$http', LoginService]);
 
-// })();
+  function RegisterService($http){
+    this.createUser = function (username, password){
+
+    }
+  }
+
+  function LoginService($http){
+
+    this.loginUser = function (username, password){
+
+    }
+
+  }
