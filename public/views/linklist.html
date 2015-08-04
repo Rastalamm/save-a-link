@@ -4,7 +4,16 @@
 
   <!-- for each link create the below div structure -->
 
-  <div class="small-12 columns each_link_container" ng-repeat="item in bookmarks">
+  <div class="add_Bookmark_Form">
+    <form action="">
+      <input type="text" placeholder="Add title" ng-model='new_bookmark.title'>
+      <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url'>
+      <input type="text" placeholder="Describe" ng-model='new_bookmark.description'>
+      <button type='button' ng-click='LinkService.addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+    </form>
+  </div>
+
+  <div class="small-12 columns each_link_container" ng-repeat="item in LinkService.bookmarks">
 
 <!--     <div class="small-2 columns medium-4 link_image_container">
       could be a background image
