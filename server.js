@@ -1,15 +1,15 @@
 var express = require('express');
 var app = express();
 var db = require('./models');
-
-db.sequelize.sync();
-
-db.User.find().then(function(users){
-  console.log(users, 'users');
-});
+var routes = require('./routes/router');
+var bodyParser = require('body-parser');
 
 
+
+app.use('/api/users', routes);
 app.use(express.static('./public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
 
 
 
