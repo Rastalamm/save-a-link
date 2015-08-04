@@ -23,6 +23,9 @@
     "gulp-sass": "^2.0.4"
   },
   "dependencies": {
-    "express": "^4.13.2"
+    "express": "^4.13.2",
+    "pg": "^4.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.5.1"
   }
 }

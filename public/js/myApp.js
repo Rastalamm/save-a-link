@@ -1,8 +1,7 @@
 'use strict'
 
 angular.module('myApp', [
-  'ngRoute',
-  'LinksController'
+  'ngRoute'
   ])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){

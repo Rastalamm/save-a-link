@@ -1,8 +1,6 @@
 'use strict'
 
-var LinksController = angular.module('LinksController', [])
-
-  LinksController
+angular.module('myApp')
     .controller('LinksController', ['$scope', 'LinkService',
       function($scope, LinkService){
         console.log(LinkService.bookmarks);
