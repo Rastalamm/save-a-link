@@ -15,8 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'bookmarks',
     classMethods : {
       associate : function(models){
-        Bookmark.belongsTo(models.User, {foreignKey : 'user_id'});
-        Bookmark.belongsTo(models.Topic, {foreignKey : 'topic_id'});
+        Bookmark.belongsTo(models.User, {foreignKey : 'user_id', foreignKeyConstraint:true});
+        Bookmark.belongsTo(models.Topic, {foreignKey : 'topic_id', foreignKeyConstraint:true});
       }
     }
   });

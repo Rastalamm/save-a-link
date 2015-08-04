@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'users',
     classMethods : {
       associate: function(models){
-        User.hasMany(models.Bookmark, {foreignKey : 'bookmark_id'});
-        User.hasMany(models.Comment, {foreignKey : 'comment_id'});
+        User.hasMany(models.Bookmark);
+        User.hasMany(models.Comment);
       }
     }
   });

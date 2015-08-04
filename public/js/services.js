@@ -18,10 +18,10 @@ function LinkService($http){
     console.log(bookmark, 'fdsaljkhlk');
     // var nextId = this.bookmarks.length + 1;
     var new_bookmark = {
-      // id : nextId,
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
+      user_id : 1,
       topic_id : 1
     }
 
@@ -29,8 +29,9 @@ function LinkService($http){
 
     //Create a http post request and see if data is coming in on the server
 
-    $http.post('/api/bookmarks').then(function (){
+    $http.post('/api/bookmarks', new_bookmark).then(function (){
       console.log('is the post request working?', new_bookmark);
+
     })
 
   }

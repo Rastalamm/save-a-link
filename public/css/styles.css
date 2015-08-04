@@ -3377,3 +3377,6 @@ th.hide-for-touch {
 @media not print {
   .show-for-print {
     display: none !important; } }
+
+.link_content_container {
+  border: 1px solid black; }
