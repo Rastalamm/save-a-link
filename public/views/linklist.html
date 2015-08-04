@@ -9,6 +9,13 @@
       <input type="text" placeholder="Add title" ng-model='new_bookmark.title'>
       <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url'>
       <input type="text" placeholder="Describe" ng-model='new_bookmark.description'>
+      <label for="topic">Choose A Topic</label>
+      <select name="topic" value=" Choose" id="">
+        <option value="coding" ng-mode="new_bookmark.topic">Coding</option>
+        <option value="history" ng-mode="new_bookmark.topic">History</option>
+        <option value="social" ng-mode="new_bookmark.topic">Social</option>
+        <option value="sports" ng-mode="new_bookmark.topic">Sports</option>
+      </select>
       <button type='button' ng-click='LinkService.addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
     </form>
   </div>

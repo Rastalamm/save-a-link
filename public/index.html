@@ -8,21 +8,23 @@
 </head>
 <body >
 
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="logo small-4 columns">
-        <h1>Save A Link</h1>
+  <div class="row" id="header_row">
+      <div class="logo small-4 columns" id="logo_container">
+        <h1 class="hide">Save A Link</h1>
       </div>
       <div class="small-8 columns">
-        <h1>Keep track of the best resources on the web!</h1>
+        <h1 id="header_text">Keep track of the best resources on the web!</h1>
       </div>
-    </div>
   </div>
+
+
+  <div id="add_bookmark_button">+</div>
+<!--
   <ul class="nav">
     <li><a ng-href="/">Home</a></li>
     <li><a ng-href="/individual">Individual</a></li>
 
-  </ul>
+  </ul> -->
   <div ng-view></div>
 
 <!--   <div class="linklistTemplate">
@@ -37,10 +39,12 @@
   <script>
     $(document).foundation();
   </script>
+  <script src="js/client.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-animate.min.js"></script>
+
   <script src="js/myApp.js"></script>
   <script src="js/controllers/linklist-controller.js"></script>
   <script src ="js/services.js"></script>

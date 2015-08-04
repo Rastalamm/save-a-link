@@ -32,9 +32,11 @@ router.post('/', function (req, res){
     url : req.body.url,
     description : req.body.description
     // user_id : req.body.user_id,
-    // topic_id : req.body.topic_id,
-    // bookmark_id : 1
+    // topic_id : req.body.topic_id
   })
+
+  res.send('Success');
+
 })
 
 module.exports = router;

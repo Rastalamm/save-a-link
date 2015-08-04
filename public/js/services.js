@@ -29,9 +29,9 @@ function LinkService($http){
 
     //Create a http post request and see if data is coming in on the server
 
-    $http.post('/api/bookmarks', new_bookmark).then(function (){
+    $http.post('/api/bookmarks', new_bookmark).then(function (res){
       console.log('is the post request working?', new_bookmark);
-
+      console.log(res, 'res');
     })
 
   }

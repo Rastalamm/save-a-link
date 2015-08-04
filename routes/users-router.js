@@ -4,7 +4,6 @@ var router = express.Router();
 var db = require('../models');
 var bodyParser = require('body-parser');
 
-
 var User = db.User;
 
 db.sequelize.sync();

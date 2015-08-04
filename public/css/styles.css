@@ -3378,5 +3378,51 @@ th.hide-for-touch {
   .show-for-print {
     display: none !important; } }
 
+.hide {
+  display: none; }
+
+#header_row {
+  border: 1px solid blue;
+  margin-bottom: 3%;
+  height: 75px;
+  padding: 0px 2% 3% 2%; }
+  @media only screen and (min-width: 641px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    #header_row {
+      height: 100px; } }
+  #header_row #logo_container {
+    background-image: url("./assets/logo.png");
+    background-repeat: no-repeat;
+    background-size: 90%;
+    height: 75px; }
+    @media only screen and (min-width: 641px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      #header_row #logo_container {
+        background-size: 75%;
+        height: 100px; } }
+  #header_row #header_text {
+    font-size: 1em;
+    line-height: 75px;
+    text-align: right; }
+    @media only screen and (min-width: 641px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      #header_row #header_text {
+        font-size: 1.6em;
+        line-height: 100px; } }
+
+#add_bookmark_button {
+  width: 50px;
+  height: 50px;
+  line-height: 38px;
+  background-color: blue;
+  border-radius: 50%;
+  border: 1px solid green;
+  color: white;
+  text-align: center;
+  font-size: 3em;
+  position: fixed;
+  bottom: 0;
+  left: 0; }
+
+.each_link_container {
+  border: 1px solid red; }
+
 .link_content_container {
   border: 1px solid black; }
