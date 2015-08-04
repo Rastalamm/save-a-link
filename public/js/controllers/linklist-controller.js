@@ -2,8 +2,8 @@
 
 angular.module('myApp')
     .controller('LinksController', ['$scope', 'LinkService',
-      function($scope, LinkService){
-        // $scope.new_bookmark = {};
+      function ($scope, LinkService){
+
         $scope.LinkService = LinkService;
         LinkService.getAllBookmarks();
       }

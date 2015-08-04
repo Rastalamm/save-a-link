@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var db = require('./models');
 var bookmarksRoute = require('./routes/bookmarks-router');
-var usersRoute = require('./routes/bookmarks-router');
+var usersRoute = require('./routes/users-router');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
@@ -14,6 +14,7 @@ var crypto = require('crypto');
 
 app.use('/api/bookmarks', bookmarksRoute);
 app.use('/api/users', usersRoute);
+
 
 app.use(express.static('./public'));
 app.use(bodyParser.json());
@@ -62,9 +63,6 @@ passport.use(new LocalStrategy(
       });
   }
 ));
-
-
-
 
 
 

@@ -1,22 +1,27 @@
 'use strict';
 
 angular.module('myApp')
-  .service('LinkService', ['$http', LinkService]);
+  .service('LinkService', ['$http', LinkService])
+  .service('RegisterService', ['$http', RegisterService])
+  .service('LoginService', ['$http', LoginService])
 
 function LinkService($http){
 
   this.bookmarks = [];
 
   this.getAllBookmarks = function(){
+
+    console.log('something');
+
     var self = this;
+
     $http.get('/api/bookmarks').then(function (bookmarks){
       self.bookmarks = bookmarks.data;
     });
   }
 
   this.addABookmark = function(bookmark){
-    console.log(bookmark, 'fdsaljkhlk');
-    // var nextId = this.bookmarks.length + 1;
+
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
@@ -34,19 +39,45 @@ function LinkService($http){
 
 }
 
-  .service('RegisterService', ['$http', RegisterService]);
-  .service('LoginService', ['$http', LoginService]);
-
   function RegisterService($http){
-    this.createUser = function (username, password){
 
+    this.createUser = function (new_user){
+
+      console.log('new_user', new_user);
+      var new_register = {
+        username : new_user.username,
+        password : new_user.password
+      };
+
+      return $http.post('/api/users/register', new_register)
+      // .then(function (res){
+      //   console.log('res', res.data);
+      //   var userCreated = res.data;
+
+      //   if(userCreated){
+      //     console.log('user created');
+      //   }else{
+      //     console.log('username');
+      //   }
+
+
+      // });
     }
   }
 
   function LoginService($http){
 
-    this.loginUser = function (username, password){
 
+    this.loginUser = function (login_user){
+
+      var user_login = {
+        username : login_user.username,
+        password : login_user.password
+      };
+
+      $http.post('/api/users/login', user_login).then(function (res){
+
+      });
     }
 
   }

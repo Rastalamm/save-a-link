@@ -12,7 +12,13 @@ db.sequelize.sync();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false}));
 
- router.get('/', function (req,res){
+
+
+
+
+router.get('/', function (req,res){
+
+  console.log('database conseol');
 
   Bookmark.findAll().then(function (bookmarks){
     res.send(bookmarks);
@@ -22,8 +28,10 @@ router.use(bodyParser.urlencoded({ extended: false}));
       throw err;
   });
 
-
 })
+
+
+
 
 router.post('/', function (req, res){
 
