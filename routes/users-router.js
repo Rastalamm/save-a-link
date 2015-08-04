@@ -51,7 +51,10 @@ function createUser (username, password){
 
 router.post('/login',
   passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/'}, function (req, res){console.log('LOGIN WORKING');}));
+                                   failureRedirect: '/'},
+                                   function (req, res){
+                                    console.log('LOGIN MIGHT BE WORKING?')
+                                  }));
 
 // router.get('/login', function (req, res) {
 

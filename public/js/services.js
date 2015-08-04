@@ -49,19 +49,7 @@ function LinkService($http){
         password : new_user.password
       };
 
-      return $http.post('/api/users/register', new_register)
-      // .then(function (res){
-      //   console.log('res', res.data);
-      //   var userCreated = res.data;
-
-      //   if(userCreated){
-      //     console.log('user created');
-      //   }else{
-      //     console.log('username');
-      //   }
-
-
-      // });
+      return $http.post('/api/users/register', new_register);
     }
   }
 
@@ -75,9 +63,7 @@ function LinkService($http){
         password : login_user.password
       };
 
-      $http.post('/api/users/login', user_login).then(function (res){
-
-      });
+      return $http.post('/api/users/login', user_login);
     }
 
   }
