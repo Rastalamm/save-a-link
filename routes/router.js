@@ -2,6 +2,8 @@ var express = require('express');
 // var app = express();
 var router = express.Router();
 var db = require('../models');
+var bodyParser = require('body-parser');
+
 
 var User = db.User;
 var Bookmark = db.Bookmark;
@@ -9,6 +11,9 @@ var Topic = db.Topic;
 var Comment = db.Comment;
 
 db.sequelize.sync();
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false}));
 
 // router.use('/', router);
 
@@ -46,8 +51,8 @@ router.get('/', function (req,res){
     ]);
 })
 
-router.post('/', function (req,res){
-  console.log('A post request', req);
+router.post('/', function (req, res){
+  console.log('A post request', req.body);
   res.send('YOU tried posting');
 })
 

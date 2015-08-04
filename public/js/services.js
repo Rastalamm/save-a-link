@@ -28,6 +28,11 @@ function LinkService($http){
     // this.bookmarks.push(new_bookmark)
 
     //Create a http post request and see if data is coming in on the server
+
+    $http.post('/api/bookmarks').then(function (){
+      console.log('is the post request working?', new_bookmark);
+    })
+
   }
 
 }
