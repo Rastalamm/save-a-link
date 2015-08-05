@@ -62,10 +62,11 @@ router.post('/login', function(req, res, next) {
 
 });
 
-// router.get('/logout', function (req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
+router.get('/logout', function (req, res){
+  req.logout();
+  res.json(req.isAuthenticated());
+
+});
 
 router.post('/register', function (req, res) {
 
@@ -85,7 +86,12 @@ router.post('/register', function (req, res) {
 });
 
 router.get('/verify', function (req, res){
-  res.json(req.isAuthenticated());
+
+  var user = {
+    authenticated: req.isAuthenticated(),
+    user : req.user
+  }
+  res.json(user);
 })
 
 

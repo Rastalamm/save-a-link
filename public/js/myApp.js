@@ -17,9 +17,6 @@ angular.module('myApp', [
         templateUrl : 'views/bookmark-list.html',
         controller : 'BookmarksController'
       })
-      .when('/individual', {
-        templateUrl : 'views/individual-post.html'
-      })
       .when('/bookmarks/:id', {
         templateUrl : 'views/individual-post.html'
       })
@@ -36,9 +33,9 @@ angular.module('myApp', [
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         var whiteList   = ['/register']; //the login is the only unguarded route - everything else needs to check session auth
         var routeSafe = !$.inArray($location.path(),whiteList);//boolean - is route safe or protected
-        var loggedIn    = AuthService.checkLoginStatus().then(function (res){
+        var loggedIn = AuthService.checkLoginStatus().then(function (res){
           console.log('loggin in', res);
-          if(!res.data && !routeSafe) {
+          if(!res.data.authenticated && !routeSafe) {
             $location.path('/register');
             // alert('You must be logged in to view this page!');
           }

@@ -4,8 +4,15 @@ angular.module('myApp')
   .service('BookmarkService', ['$http', BookmarkService])
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
+  .service('LogOutService', ['$http', LogOutService])
   .service('TopicService', ['$http', TopicService])
   .service('AuthService', ['$http', AuthService])
+
+function LogOutService($http){
+  this.logUserOut = function (){
+    return $http.get('/api/users/logout');
+  }
+}
 
 function AuthService($http){
   this.checkLoginStatus = function(){
@@ -35,15 +42,15 @@ function BookmarkService($http){
 
   this.addABookmark = function(bookmark){
 
+    console.log();
+
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
-      // user_id : 1,
+      user_id : res.data.id,
       topic_id : bookmark.topic.id
     }
-
-    // console.log('new bookmark inserted', new_bookmark);
 
     return $http.post('/api/bookmarks', new_bookmark);
 

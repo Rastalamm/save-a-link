@@ -11,6 +11,7 @@ angular.module('myApp')
         .success(function (res){
           console.log('response', res);
           if(res){
+
             $scope.registerMessage = 'success'
           }else{
             $scope.registerMessage = 'Username has been taken'

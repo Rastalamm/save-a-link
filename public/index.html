@@ -20,11 +20,12 @@
 
   <div id="add_bookmark_button">+</div>
 
-  <ul class="nav">
+  <ul class="nav" ng-controller="NavController">
     <li><a ng-href="#/">Home</a></li>
-    <li><a ng-href="#/individual">Individual</a></li>
+    <li><a ng-href="" ng-click="logUserOut()">Logout</a></li>
     <li><a ng-href="#/register">Register</a></li>
   </ul>
+
   <div ng-view></div>
 
 
@@ -50,6 +51,7 @@
 
   <script src="js/controllers/register-login-controller.js"></script>
   <script src="js/controllers/individual-bookmark-controller.js"></script>
+  <script src="js/controllers/nav-controller.js"></script>
 
   <script src ="js/services.js"></script>
 

@@ -4,7 +4,7 @@
     <form name="register" novalidate>
       <h2>Register</h2>
       <h1>{{registerMessage}}</h1>
-      Username: <input type="text" placeholder="Username"  ng-model="new_user.username" ng-minlength="5" ng-maxlength="12" required /><br />
+      Username: <input type="text" placeholder="Username"  ng-model="new_user.username" ng-minlength="3" ng-maxlength="12" required /><br />
       Password: <input type="password" placeholder="Password"  ng-model="new_user.password" ng-minlength="5" required /><br />
       <button type="button" ng-click="createUser(new_user)">Register</button>
     </form>
