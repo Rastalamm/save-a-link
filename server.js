@@ -7,21 +7,11 @@ var topicsRoute = require('./routes/topics-router');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
+
 var LocalStrategy = require('passport-local').Strategy;
 var crypto = require('crypto');
 
-
-
-
-app.use('/api/bookmarks', bookmarksRoute);
-app.use('/api/users', usersRoute);
-app.use('/api/topics', topicsRoute);
-
-
-app.use(express.static('./public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
-
+var User = db.User;
 
 app.use(session(
   {
@@ -31,6 +21,10 @@ app.use(session(
   }
 ));
 
+app.use(express.static('./public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -39,12 +33,12 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
+  console.log('id', id);
   User.findById(id).then(
     function(user) {
       done(null, user);
     });
 });
-
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -66,6 +60,21 @@ passport.use(new LocalStrategy(
   }
 ));
 
+app.use('/api/bookmarks', bookmarksRoute);
+app.use('/api/users', usersRoute);
+app.use('/api/topics', topicsRoute);
 
+
+
+
+function makeHash (password){
+
+  var shasum = crypto.createHash('sha256');
+  shasum.update(password);
+
+  hashWord = shasum.digest('hex');
+
+  return hashWord;
+}
 
 app.listen(3000);

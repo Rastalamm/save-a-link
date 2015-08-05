@@ -8,7 +8,7 @@ angular.module('myApp')
         $scope.bookmarks = [];
         LinkService.getAllBookmarks()
         .success(function (res){
-          console.log('res', res);
+
           $scope.bookmarks = res;
         })
         .error(function (err){

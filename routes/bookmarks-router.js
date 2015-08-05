@@ -39,7 +39,7 @@ router.post('/', function (req, res){
     title : req.body.title,
     url : req.body.url,
     description : req.body.description,
-    // user_id : req.body.user_id,
+    user_id : req.user.id,
     topic_id : req.body.topic_id
   })
 

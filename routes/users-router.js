@@ -15,15 +15,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false}));
 
 
-// function makeHash (password){
 
-//   var shasum = crypto.createHash('sha256');
-//   shasum.update(password);
-
-//   hashWord = shasum.digest('hex');
-
-//   return hashWord;
-// }
 
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
@@ -49,24 +41,47 @@ function createUser (username, password){
 }
 
 
-router.post('/login',
-  passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/'},
-                                   function (req, res){
-                                    console.log('LOGIN MIGHT BE WORKING?')
-                                  }));
 
-// router.get('/login', function (req, res) {
+router.post('/login', function(req, res, next) {
 
-//   console.log('');
 
-//   res.render("login", { user: req.user} );
+  console.log('in server');
+
+    passport.authenticate('local', function (err, user, info) {
+
+      console.log('user should be in there');
+      if (err) {
+        return next(err);
+      }
+
+      if (!user) {
+        return res.send(false);
+      }
+      req.logIn(user, function(err) {
+        if (err) {
+          return next(err);
+        }
+        res.status(200).send(true);
+
+      });
+    })(req, res, next);
+
+  });
+
+// router.post('/login',
+//   passport.authenticate('local'),
+//     function (req, res){
+//       console.log('authentication worked');
+//       res.send(req)
+//     }
+//   )
+
+
+
+// router.get('/logout', function (req, res){
+//   req.logout();
+//   res.redirect('/');
 // });
-
-router.get('/logout', function (req, res){
-  req.logout();
-  res.redirect('/');
-});
 
 router.post('/register', function (req, res) {
 
@@ -85,9 +100,7 @@ router.post('/register', function (req, res) {
   })
 });
 
-// router.get('/register', function (req, res) {
-//   res.redirect("/");
-// });
+
 
 
 

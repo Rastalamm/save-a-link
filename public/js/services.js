@@ -14,27 +14,21 @@ function TopicService($http){
 
 function LinkService($http){
 
-  // this.bookmarks = [];
-
   this.getAllBookmarks = function(){
 
-    console.log('get the bookmarks');
-
-    // var self = this;
-
     return $http.get('/api/bookmarks');
-    // .then(function (bookmarks){
-    //   self.bookmarks = bookmarks.data;
-    // });
+
   }
 
   this.addABookmark = function(bookmark){
+
+    console.log('bookmark', bookmark);
 
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
-      user_id : 1,
+      // user_id : 1,
       topic_id : bookmark.topic.id
     }
 
@@ -60,13 +54,13 @@ function LinkService($http){
 
   function LoginService($http){
 
-
     this.loginUser = function (login_user){
 
       var user_login = {
         username : login_user.username,
         password : login_user.password
       };
+      console.log('user nlogin', user_login);
 
       return $http.post('/api/users/login', user_login);
     }
