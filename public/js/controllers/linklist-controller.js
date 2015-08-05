@@ -16,6 +16,7 @@ angular.module('myApp')
         })
 
         $scope.addABookmark = function(){
+          $scope.bookmarks.push($scope.new_bookmark);
           LinkService.addABookmark($scope.new_bookmark)
           .success(function (res){
             console.log('sucess', res);

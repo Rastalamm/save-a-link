@@ -44,39 +44,25 @@ function createUser (username, password){
 
 router.post('/login', function(req, res, next) {
 
+  passport.authenticate('local', function (err, user, info) {
 
-  console.log('in server');
+    if (err) {
+      return next(err);
+    }
 
-    passport.authenticate('local', function (err, user, info) {
-
-      console.log('user should be in there');
+    if (!user) {
+      return res.send(false);
+    }
+    req.logIn(user, function(err) {
       if (err) {
         return next(err);
       }
+      res.status(200).send(true);
 
-      if (!user) {
-        return res.send(false);
-      }
-      req.logIn(user, function(err) {
-        if (err) {
-          return next(err);
-        }
-        res.status(200).send(true);
+    });
+  })(req, res, next);
 
-      });
-    })(req, res, next);
-
-  });
-
-// router.post('/login',
-//   passport.authenticate('local'),
-//     function (req, res){
-//       console.log('authentication worked');
-//       res.send(req)
-//     }
-//   )
-
-
+});
 
 // router.get('/logout', function (req, res){
 //   req.logout();
