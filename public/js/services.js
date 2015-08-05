@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-  .service('LinkService', ['$http', LinkService])
+  .service('BookmarkService', ['$http', BookmarkService])
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
   .service('TopicService', ['$http', TopicService])
@@ -12,7 +12,7 @@ function TopicService($http){
   }
 }
 
-function LinkService($http){
+function BookmarkService($http){
 
   this.getAllBookmarks = function(){
 

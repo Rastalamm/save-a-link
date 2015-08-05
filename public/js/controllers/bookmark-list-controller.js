@@ -1,12 +1,12 @@
 'use strict'
 
 angular.module('myApp')
-    .controller('LinksController', ['$scope', 'LinkService', 'TopicService',
-      function ($scope, LinkService, TopicService){
+    .controller('BookmarksController', ['$scope', 'BookmarkService', 'TopicService',
+      function ($scope, BookmarkService, TopicService){
 
-        $scope.LinkService = LinkService;
+        $scope.BookmarkService = BookmarkService;
         $scope.bookmarks = [];
-        LinkService.getAllBookmarks()
+        BookmarkService.getAllBookmarks()
         .success(function (res){
 
           $scope.bookmarks = res;
@@ -17,7 +17,7 @@ angular.module('myApp')
 
         $scope.addABookmark = function(){
           $scope.bookmarks.push($scope.new_bookmark);
-          LinkService.addABookmark($scope.new_bookmark)
+          BookmarkService.addABookmark($scope.new_bookmark)
           .success(function (res){
             console.log('sucess', res);
           })

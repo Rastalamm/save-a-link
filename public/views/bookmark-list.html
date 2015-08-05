@@ -1,0 +1,56 @@
+<div ng-include src="'views/filter-bar.html'"></div>
+
+<div class="row" id="all_bookmark_container" ng-controller="BookmarksController">
+
+  <!-- for each bookmark create the below div structure -->
+
+  <div class="add_Bookmark_Form">
+    <form action="">
+      <input type="text" placeholder="Add title" ng-model='new_bookmark.title'>
+      <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url'>
+      <input type="text" placeholder="Describe" ng-model='new_bookmark.description'>
+      <label for="topic">Choose A Topic</label>
+      <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
+        <option value="">-- choose a topic--</option>
+      </select>
+      <button type='button' ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+    </form>
+  </div>
+
+  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks">
+
+    <div class="small-2 columns medium-3 bookmark_image_container">
+      <img class="bookmark_image_container" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="">
+    </div>
+
+    <div class="small-10 columns medium-9 bookmark_content_container">
+      <div class="row">
+        <div class="small-12 columns bookmark_heading_container">
+          <h1 class="bookmark_heading">{{ item.title }}</h1>
+        </div>
+        <div class="small-3 columns bookmark_url_container">
+          {{item.url}}
+        </div>
+        <div class="small-3 columns bookmark_topic_container">
+          TOPIC GOES HERE
+        </div>
+        <div class="small-3 columns bookmark_hit_count_container">
+          # OF HITS HERE
+        </div>
+        <div class="small-3 columns bookmark_comment_count_container">
+          # OF COMMENTS HERE
+        </div>
+        <div class="small-12 columns bookmark_description_container">
+          <p class="bookmark_description">{{item.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- end of the bookmark 'post' -->
+
+
+
+
+
+</div>

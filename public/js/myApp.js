@@ -13,8 +13,8 @@ angular.module('myApp', [
 
     $routeProvider
       .when('/', {
-        templateUrl : 'views/linklist.html',
-        controller : 'LinksController'
+        templateUrl : 'views/bookmark-list.html',
+        controller : 'BookmarksController'
       })
       .when('/individual', {
         templateUrl : 'views/individual-post.html'

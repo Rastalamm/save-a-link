@@ -40,8 +40,6 @@ function createUser (username, password){
   })
 }
 
-
-
 router.post('/login', function(req, res, next) {
 
   passport.authenticate('local', function (err, user, info) {

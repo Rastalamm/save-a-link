@@ -3421,8 +3421,8 @@ th.hide-for-touch {
   bottom: 0;
   left: 0; }
 
-.each_link_container {
+.each_bookmark_container {
   border: 1px solid red; }
 
-.link_content_container {
+.bookmark_content_container {
   border: 1px solid black; }
