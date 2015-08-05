@@ -3421,19 +3421,28 @@ th.hide-for-touch {
   bottom: 0;
   left: 0; }
 
-input.ng-invalid {
-  border: 1px solid red; }
+.nav {
+  position: fixed;
+  top: 10px;
+  left: 50px; }
 
-input.ng-valid {
-  border: 1px solid green; }
+.bookmark_url_container {
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .each_bookmark_container {
   border: 1px solid red; }
-
-.bookmark_content_container {
-  border: 1px solid black; }
-
-.error {
-  color: red;
-  font-size: 1em;
-  border: 1px solid yellow; }
+  .each_bookmark_container .bookmark_content_container {
+    border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_heading_container {
+      border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_url_container {
+      border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_topic_container {
+      border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_time_added_container {
+      border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_comment_count_container {
+      border: 1px solid black; }
+    .each_bookmark_container .bookmark_content_container .bookmark_description_container {
+      border: 1px solid black; }

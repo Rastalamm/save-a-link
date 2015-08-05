@@ -5,12 +5,11 @@
   <!-- for each bookmark create the below div structure -->
 
   <div class="add_Bookmark_Form">
-    <form action="">
-      <input type="text" placeholder="Add title" ng-model='new_bookmark.title'>
-      <input type="url" placeholder="Add the URL" ng-model='new_bookmark.url'>
-      <input type="text" placeholder="Describe" ng-model='new_bookmark.description'>
-      <label for="topic">Choose A Topic</label>
-      <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
+    <form>
+      Title: <input type="text" placeholder="Add title" ng-model='new_bookmark.title' required>
+      Link: <input type="url" placeholder="Add the URL" ng-model='new_bookmark.url' required>
+      Describe: <input type="text" placeholder="Describe" ng-model='new_bookmark.description' required>
+      Choose A Topic: <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
         <option value="">-- choose a topic--</option>
       </select>
       <button type='button' ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
@@ -18,33 +17,36 @@
   </div>
 
   <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks">
+  <!-- Below href should go to the individual page -->
+    <a href="#/bookmarks/{{item.id}}">
 
-    <div class="small-2 columns medium-3 bookmark_image_container">
-      <img class="bookmark_image_container" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="">
-    </div>
+      <div class="small-2 columns medium-3 bookmark_image_container">
+        <img class="bookmark_image_container" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="">
+      </div>
 
-    <div class="small-10 columns medium-9 bookmark_content_container">
-      <div class="row">
-        <div class="small-12 columns bookmark_heading_container">
-          <h1 class="bookmark_heading">{{ item.title }}</h1>
-        </div>
-        <div class="small-3 columns bookmark_url_container">
-          {{item.url}}
-        </div>
-        <div class="small-3 columns bookmark_topic_container">
-          TOPIC GOES HERE
-        </div>
-        <div class="small-3 columns bookmark_hit_count_container">
-          # OF HITS HERE
-        </div>
-        <div class="small-3 columns bookmark_comment_count_container">
-          # OF COMMENTS HERE
-        </div>
-        <div class="small-12 columns bookmark_description_container">
-          <p class="bookmark_description">{{item.description}}</p>
+      <div class="small-10 columns medium-9 bookmark_content_container">
+        <div class="row">
+          <div class="small-12 columns bookmark_heading_container">
+            <h1 class="bookmark_heading">{{ item.title }}</h1>
+          </div>
+          <div class="small-3 columns bookmark_url_container">
+            <a href="{{item.url}}" target="_blank">{{item.url}}</a>
+          </div>
+          <div class="small-3 columns bookmark_topic_container">
+            Topic: {{item.Topic.name}}
+          </div>
+          <div class="small-4 columns bookmark_time_added_container">
+            Added: {{item.created_at | amDateFormat: 'MMM D YY, h:mm a'}}
+          </div>
+          <div class="small-2 columns bookmark_comment_count_container">
+            100 Comments
+          </div>
+          <div class="small-12 columns bookmark_description_container">
+            <p class="bookmark_description">{{item.description}}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 
 <!-- end of the bookmark 'post' -->

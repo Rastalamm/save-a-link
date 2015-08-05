@@ -66,16 +66,17 @@ $large : "only screen and (min-width: 1025px)";
   left: 0;
 }
 
-
-input.ng-invalid {
-  border: 1px solid red;
-}
-input.ng-valid {
-  border: 1px solid green;
+.nav{
+  position: fixed;
+  top: 10px;
+  left: 50px;
 }
 
 
-
+.bookmark_url_container{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 
 
@@ -83,14 +84,34 @@ input.ng-valid {
 
 .each_bookmark_container{
   border: 1px solid red;
-}
 
-.bookmark_content_container{
-  border: 1px solid black;
-}
 
-.error{
-  color: red;
-  font-size: 1em;
-  border: 1px solid yellow;
+  .bookmark_content_container{
+    border: 1px solid black;
+
+    .bookmark_heading_container{
+      border: 1px solid black;
+    }
+
+    .bookmark_url_container{
+        border: 1px solid black;
+    }
+
+    .bookmark_topic_container{
+      border: 1px solid black;
+    }
+
+    .bookmark_time_added_container{
+      border: 1px solid black;
+    }
+
+    .bookmark_comment_count_container{
+      border: 1px solid black;
+    }
+
+    .bookmark_description_container{
+      border: 1px solid black;
+    }
+  }
+
 }

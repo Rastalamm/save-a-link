@@ -5,6 +5,7 @@ var db = require('../models');
 var bodyParser = require('body-parser');
 
 var Bookmark = db.Bookmark;
+var Topic = db.Topic;
 
 
 db.sequelize.sync();
@@ -20,7 +21,10 @@ router.get('/', function (req,res){
 
   console.log('Get list of all bookmarks');
 
-  Bookmark.findAll().then(function (bookmarks){
+  Bookmark.findAll({
+    include : [{model : Topic}]
+  }).then(function (bookmarks){
+
     res.send(bookmarks);
 
   }).catch(function (err) {
@@ -30,6 +34,16 @@ router.get('/', function (req,res){
 
 })
 
+router.get('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+
+  Bookmark.findOne({where : {id :bookmarkId}})
+    .then(function (bookmark){
+      res.send(bookmark)
+  })
+
+
+})
 
 
 

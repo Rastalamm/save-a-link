@@ -20,6 +20,10 @@ function BookmarkService($http){
 
   }
 
+  this.getOneBookmark = function(bookmarkId){
+    return $http.get('/api/bookmarks', {bookmarkId : bookmarkId})
+  }
+
   this.addABookmark = function(bookmark){
 
     console.log('bookmark', bookmark);
