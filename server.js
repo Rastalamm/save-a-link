@@ -60,8 +60,8 @@ passport.use(new LocalStrategy(
   }
 ));
 
-app.use('/api/bookmarks', bookmarksRoute);
 app.use('/api/users', usersRoute);
+app.use('/api/bookmarks', bookmarksRoute);
 app.use('/api/topics', topicsRoute);
 
 
