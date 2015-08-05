@@ -40,7 +40,7 @@ angular.module('myApp', [
             console.log('in here');
 
           }else{
-
+            console.log('EVery time');
             sessionStorage.setItem('username', res.data.user.username);
             sessionStorage.setItem('userId', res.data.user.id);
           }

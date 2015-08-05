@@ -16,12 +16,6 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
 
 
-
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/')
-}
-
 function makeHash (password){
 
   var shasum = crypto.createHash('sha256');
