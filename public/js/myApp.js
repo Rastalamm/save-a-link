@@ -35,9 +35,14 @@ angular.module('myApp', [
         var routeSafe = !$.inArray($location.path(),whiteList);//boolean - is route safe or protected
         var loggedIn = AuthService.checkLoginStatus().then(function (res){
           console.log('loggin in', res);
-          if(!res.data.authenticated && !routeSafe) {
+          if((!res.data.authenticated && !routeSafe) || !res.data.authenticated) {
             $location.path('/register');
-            // alert('You must be logged in to view this page!');
+            console.log('in here');
+
+          }else{
+
+            sessionStorage.setItem('username', res.data.user.username);
+            sessionStorage.setItem('userId', res.data.user.id);
           }
 
         });//boolean - if user is logged in

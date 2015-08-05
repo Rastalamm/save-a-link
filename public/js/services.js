@@ -42,13 +42,13 @@ function BookmarkService($http){
 
   this.addABookmark = function(bookmark){
 
-    console.log();
+    console.log('want to add this', bookmark);
 
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
-      user_id : res.data.id,
+      user_id : sessionStorage.getItem('userId'),
       topic_id : bookmark.topic.id
     }
 

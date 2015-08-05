@@ -2,6 +2,7 @@
 
 <div class="row" id="all_bookmark_container" ng-controller="BookmarksController">
 
+  <div id="add_bookmark_button">+</div>
   <!-- for each bookmark create the below div structure -->
 
   <div class="add_Bookmark_Form">
@@ -12,7 +13,7 @@
       Choose A Topic: <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
         <option value="">-- choose a topic--</option>
       </select>
-      <button type='button' ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+      <button type='button' id="submit_new_link_button" ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
     </form>
   </div>
 
