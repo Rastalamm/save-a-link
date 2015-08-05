@@ -21,7 +21,8 @@ function BookmarkService($http){
   }
 
   this.getOneBookmark = function(bookmarkId){
-    return $http.get('/api/bookmarks', {bookmarkId : bookmarkId})
+    console.log('service consoleof id', bookmarkId);
+    return $http.get('/api/bookmarks/' + bookmarkId);
   }
 
   this.addABookmark = function(bookmark){

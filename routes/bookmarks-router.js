@@ -15,42 +15,25 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
 
 
-
-
 router.get('/', function (req,res){
-
   console.log('Get list of all bookmarks');
-
   Bookmark.findAll({
     include : [{model : Topic}]
   }).then(function (bookmarks){
 
-    res.send(bookmarks);
+    res.json(bookmarks);
 
   }).catch(function (err) {
-      res.send(err);
+      res.json(err);
       throw err;
   });
 
 })
 
-router.get('/:id', function (req, res){
-  var bookmarkId = req.params.id;
-
-  Bookmark.findOne({where : {id :bookmarkId}})
-    .then(function (bookmark){
-      res.send(bookmark)
-  })
-
-
-})
 
 
 
 router.post('/', function (req, res){
-
-  console.log(req.body);
-
   Bookmark.create({
     title : req.body.title,
     url : req.body.url,
@@ -64,10 +47,17 @@ router.post('/', function (req, res){
     .then(function (bookmark){
       res.json(bookmark);
     })
-
   })
+})
 
+router.get('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+  console.log (bookmarkId, 'bookmark iddd');
 
+  Bookmark.findOne({where : {id :bookmarkId}})
+    .then(function (bookmark){
+      res.json(bookmark)
+  })
 })
 
 module.exports = router;

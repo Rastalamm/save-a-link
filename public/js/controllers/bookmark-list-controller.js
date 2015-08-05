@@ -8,7 +8,7 @@ angular.module('myApp')
         $scope.bookmarks = [];
         BookmarkService.getAllBookmarks()
         .success(function (res){
-          console.log(res);
+
           $scope.bookmarks = res;
         })
         .error(function (err){
@@ -32,7 +32,7 @@ angular.module('myApp')
         $scope.topics = [];
         TopicService.getAllTopics()
         .success(function (res){
-          console.log('topics', res)
+
           $scope.topics = res;
         })
         .error(function (err){
