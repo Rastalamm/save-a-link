@@ -7,7 +7,7 @@
   <div class="add_Bookmark_Form">
     <form>
       Title: <input type="text" placeholder="Add title" ng-model='new_bookmark.title' required>
-      Link: <input type="url" placeholder="Add the URL" ng-model='new_bookmark.url' required>
+      Link: <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url' required>
       Describe: <input type="text" placeholder="Describe" ng-model='new_bookmark.description' required>
       Choose A Topic: <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
         <option value="">-- choose a topic--</option>
@@ -18,7 +18,7 @@
 
   <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks">
   <!-- Below href should go to the individual page -->
-    <a href="#/bookmarks/{{item.id}}">
+    <a ng-href="#/bookmarks/{{item.id}}">
 
       <div class="small-2 columns medium-3 bookmark_image_container">
         <img class="bookmark_image_container" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="">

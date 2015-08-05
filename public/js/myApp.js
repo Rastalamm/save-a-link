@@ -20,6 +20,9 @@ angular.module('myApp', [
       .when('/individual', {
         templateUrl : 'views/individual-post.html'
       })
+      .when('/bookmarks/:id', {
+        templateUrl : 'views/individual-post.html'
+      })
       .when('/register', {
         templateUrl : 'views/register-login.html',
         controller : 'RegisterLoginController'

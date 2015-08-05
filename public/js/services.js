@@ -26,8 +26,6 @@ function BookmarkService($http){
 
   this.addABookmark = function(bookmark){
 
-    console.log('bookmark', bookmark);
-
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
@@ -35,6 +33,8 @@ function BookmarkService($http){
       // user_id : 1,
       topic_id : bookmark.topic.id
     }
+
+    // console.log('new bookmark inserted', new_bookmark);
 
     return $http.post('/api/bookmarks', new_bookmark);
 

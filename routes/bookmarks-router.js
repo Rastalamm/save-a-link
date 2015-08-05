@@ -49,15 +49,24 @@ router.get('/:id', function (req, res){
 
 router.post('/', function (req, res){
 
+  console.log(req.body);
+
   Bookmark.create({
     title : req.body.title,
     url : req.body.url,
     description : req.body.description,
     user_id : req.user.id,
     topic_id : req.body.topic_id
+  }).then(function (bookmark){
+
+    Bookmark.findOne({where : {id :bookmark.id},
+      include : [{model : Topic}]})
+    .then(function (bookmark){
+      res.json(bookmark);
+    })
+
   })
 
-  res.send('Success');
 
 })
 

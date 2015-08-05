@@ -20,6 +20,7 @@ angular.module('myApp')
           BookmarkService.addABookmark($scope.new_bookmark)
           .success(function (res){
             console.log('sucess', res);
+            $scope.bookmarks.push(res)
 
           })
           .error(function (err){
