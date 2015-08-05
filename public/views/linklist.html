@@ -16,11 +16,11 @@
         <option value="social" ng-mode="new_bookmark.topic">Social</option>
         <option value="sports" ng-mode="new_bookmark.topic">Sports</option>
       </select>
-      <button type='button' ng-click='LinkService.addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+      <button type='button' ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
     </form>
   </div>
 
-  <div class="small-12 columns each_link_container" ng-repeat="item in LinkService.bookmarks">
+  <div class="small-12 columns each_link_container" ng-repeat="item in bookmarks">
 
     <div class="small-2 columns medium-3 link_image_container">
       <img class="link_image_container" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/138.jpg" alt="">

@@ -18,7 +18,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
 router.get('/', function (req,res){
 
-  console.log('database conseol');
+  console.log('Get list of all bookmarks');
 
   Bookmark.findAll().then(function (bookmarks){
     res.send(bookmarks);

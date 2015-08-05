@@ -7,33 +7,33 @@ angular.module('myApp')
 
 function LinkService($http){
 
-  this.bookmarks = [];
+  // this.bookmarks = [];
 
   this.getAllBookmarks = function(){
 
-    console.log('something');
+    console.log('get the bookmarks');
 
-    var self = this;
+    // var self = this;
 
-    $http.get('/api/bookmarks').then(function (bookmarks){
-      self.bookmarks = bookmarks.data;
-    });
+    return $http.get('/api/bookmarks');
+    // .then(function (bookmarks){
+    //   self.bookmarks = bookmarks.data;
+    // });
   }
 
   this.addABookmark = function(bookmark){
+
+    console.log(bookmark)
 
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
       user_id : 1,
-      topic_id : 1
+      topic_id : bookmark.topic
     }
 
-    $http.post('/api/bookmarks', new_bookmark).then(function (res){
-      console.log('is the post request working?', new_bookmark);
-      console.log(res, 'res');
-    })
+    return $http.post('/api/bookmarks', new_bookmark);
 
   }
 
