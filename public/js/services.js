@@ -4,6 +4,13 @@ angular.module('myApp')
   .service('LinkService', ['$http', LinkService])
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
+  .service('TopicService', ['$http', TopicService])
+
+function TopicService($http){
+  this.getAllTopics = function (){
+    return $http.get('/api/topics');
+  }
+}
 
 function LinkService($http){
 
@@ -23,14 +30,12 @@ function LinkService($http){
 
   this.addABookmark = function(bookmark){
 
-    console.log(bookmark)
-
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
       description : bookmark.description,
       user_id : 1,
-      topic_id : bookmark.topic
+      topic_id : bookmark.topic.id
     }
 
     return $http.post('/api/bookmarks', new_bookmark);

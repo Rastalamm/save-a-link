@@ -3,6 +3,7 @@ var app = express();
 var db = require('./models');
 var bookmarksRoute = require('./routes/bookmarks-router');
 var usersRoute = require('./routes/users-router');
+var topicsRoute = require('./routes/topics-router');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
@@ -14,6 +15,7 @@ var crypto = require('crypto');
 
 app.use('/api/bookmarks', bookmarksRoute);
 app.use('/api/users', usersRoute);
+app.use('/api/topics', topicsRoute);
 
 
 app.use(express.static('./public'));

@@ -1,9 +1,8 @@
 'use strict'
 
 angular.module('myApp')
-    .controller('LinksController', ['$scope', 'LinkService',
-      function ($scope, LinkService){
-
+    .controller('LinksController', ['$scope', 'LinkService', 'TopicService',
+      function ($scope, LinkService, TopicService){
 
         $scope.LinkService = LinkService;
         $scope.bookmarks = [];
@@ -16,17 +15,6 @@ angular.module('myApp')
           console.log('err', err);
         })
 
-        // $scope.getAllBookmarks = function (){
-        //   console.log('is this working?');
-        //   LinkService.getAllBookmarks()
-        //   .success(function (res){
-        //     console.log('sucess', res);
-        //   })
-        //   .error(function (err){
-        //     console.log('err', err);
-        //   })
-        // };
-
         $scope.addABookmark = function(){
           LinkService.addABookmark($scope.new_bookmark)
           .success(function (res){
@@ -37,6 +25,16 @@ angular.module('myApp')
           })
         };
 
+      // $scope.TopicService = TopicService;
+      $scope.topics = [];
+      TopicService.getAllTopics()
+      .success(function (res){
+        console.log('topics', res)
+        $scope.topics = res;
+      })
+      .error(function (err){
+        console.log('err', err);
+      })
 
       }
 
