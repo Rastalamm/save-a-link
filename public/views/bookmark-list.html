@@ -7,7 +7,7 @@
   <div class="add_Bookmark_Form">
     <form action="">
       <input type="text" placeholder="Add title" ng-model='new_bookmark.title'>
-      <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url'>
+      <input type="url" placeholder="Add the URL" ng-model='new_bookmark.url'>
       <input type="text" placeholder="Describe" ng-model='new_bookmark.description'>
       <label for="topic">Choose A Topic</label>
       <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">

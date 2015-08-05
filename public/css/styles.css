@@ -3421,8 +3421,19 @@ th.hide-for-touch {
   bottom: 0;
   left: 0; }
 
+input.ng-invalid {
+  border: 1px solid red; }
+
+input.ng-valid {
+  border: 1px solid green; }
+
 .each_bookmark_container {
   border: 1px solid red; }
 
 .bookmark_content_container {
   border: 1px solid black; }
+
+.error {
+  color: red;
+  font-size: 1em;
+  border: 1px solid yellow; }

@@ -1,21 +1,25 @@
 <div class="entry_page_conatiner row" ng-controller="RegisterLoginController">
 
   <div class="register_container small-6 columns">
-    <form action="">
+    <form name="register" novalidate>
       <h2>Register</h2>
       <h1>{{registerMessage}}</h1>
-      <input type="text" placeholder="Username" ng-model="new_user.username">
-      <input type="text" placeholder="Password" ng-model="new_user.password">
+      Username: <input type="text" placeholder="Username"  ng-model="new_user.username" ng-minlength="5" ng-maxlength="12" required /><br />
+      Password: <input type="password" placeholder="Password"  ng-model="new_user.password" ng-minlength="5" required /><br />
       <button type="button" ng-click="createUser(new_user)">Register</button>
     </form>
+
+
+
+
   </div>
 
   <div class="login_container small-6 columns">
     <form action="">
       <h2>Login</h2>
       <h1>{{loginMessage}}</h1>
-      <input type="text" placeholder="Username" ng-model="login_user.username">
-      <input type="text" placeholder="Password" ng-model="login_user.password">
+      Username: <input type="text" placeholder="Username" ng-model="login_user.username"><br />
+      Password: <input type="text" placeholder="Password" ng-model="login_user.password"><br />
       <button type="button" ng-click="loginUser(login_user)">Login</button>
     </form>
   </div>

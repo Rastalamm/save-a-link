@@ -67,7 +67,12 @@ $large : "only screen and (min-width: 1025px)";
 }
 
 
-
+input.ng-invalid {
+  border: 1px solid red;
+}
+input.ng-valid {
+  border: 1px solid green;
+}
 
 
 
@@ -82,4 +87,10 @@ $large : "only screen and (min-width: 1025px)";
 
 .bookmark_content_container{
   border: 1px solid black;
+}
+
+.error{
+  color: red;
+  font-size: 1em;
+  border: 1px solid yellow;
 }
