@@ -31,8 +31,6 @@ router.get('/', function (req,res){
 })
 
 
-
-
 router.post('/', function (req, res){
   Bookmark.create({
     title : req.body.title,

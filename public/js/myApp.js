@@ -31,6 +31,20 @@ angular.module('myApp', [
         templateUrl : 'views/404.html'
       })
   }])
-  .run(function(){
 
+.run(function($rootScope,$location,AuthService){
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+        var whiteList   = ['/register']; //the login is the only unguarded route - everything else needs to check session auth
+        var routeSafe = !$.inArray($location.path(),whiteList);//boolean - is route safe or protected
+        var loggedIn    = AuthService.checkLoginStatus().then(function (res){
+          console.log('loggin in', res);
+          if(!res.data && !routeSafe) {
+            $location.path('/register');
+            // alert('You must be logged in to view this page!');
+          }
+
+        });//boolean - if user is logged in
+
+
+    });
   })

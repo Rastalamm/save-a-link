@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('myApp')
-  .controller('RegisterLoginController', ['$scope', 'RegisterService', 'LoginService',
-    function ($scope, RegisterService, LoginService){
+  .controller('RegisterLoginController', ['$scope', 'RegisterService', 'LoginService', '$location',
+    function ($scope, RegisterService, LoginService, $location){
       $scope.RegisterService = RegisterService;
       $scope.LoginService = LoginService;
       $scope.createUser = function (){
@@ -27,7 +27,8 @@ angular.module('myApp')
         .success(function (res){
           console.log('response', res);
           if(res){
-            $scope.loginMessage = 'success'
+            // $scope.loginMessage = 'success'
+            $location.path('/');
           }else{
             $scope.loginMessage = 'something not working'
           }
@@ -37,9 +38,6 @@ angular.module('myApp')
         })
 
       }
-
-
-
 
     }
   ])

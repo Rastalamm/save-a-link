@@ -84,7 +84,9 @@ router.post('/register', function (req, res) {
   })
 });
 
-
+router.get('/verify', function (req, res){
+  res.json(req.isAuthenticated());
+})
 
 
 

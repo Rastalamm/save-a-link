@@ -5,6 +5,14 @@ angular.module('myApp')
   .service('RegisterService', ['$http', RegisterService])
   .service('LoginService', ['$http', LoginService])
   .service('TopicService', ['$http', TopicService])
+  .service('AuthService', ['$http', AuthService])
+
+function AuthService($http){
+  this.checkLoginStatus = function(){
+     return $http.get('/api/users/verify');
+  }
+}
+
 
 function TopicService($http){
   this.getAllTopics = function (){

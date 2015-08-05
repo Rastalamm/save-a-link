@@ -67,6 +67,7 @@ app.use('/api/topics', topicsRoute);
 
 
 
+
 function makeHash (password){
 
   var shasum = crypto.createHash('sha256');
