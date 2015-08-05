@@ -1,37 +1,37 @@
 <div class="row indi_link_container" ng-controller="IndividualBookmarkController">
 
-  <div class="small-12 indi_link_heading_container">
+  <div class="small-12 columns indi_link_heading_container">
     <h1 class="indi_link_heading">{{ individualBookmark.title }}</h1>
   </div>
 
-  <div class="small-3 indi_link_url_container">
-    <a href="#" class="indi_link_topic">URL of Link</a>
+  <div class="small-3 columns indi_link_url_container">
+    <a href="#" class="indi_link_topic">{{individualBookmark.url}}</a>
   </div>
-  <div class="small-3 indi_link_topic_container">
-    <h2 class="indi_link_topic">Topic of Link</h2>
+  <div class="small-3 columns indi_link_topic_container">
+    <h3 class="indi_link_topic">Topic: {{ individualBookmark.Topic.name }}</h3>
   </div>
-  <div class="small-3 indi_link_me_you_container">
+<!--   <div class="small-3 columns indi_link_me_you_container">
     <h2 class="indi_link_me_you_slider">Me/You Switch</h2>
-  </div>
-  <div class="small-3 indi_link_date_added_container">
-    <h3 class="indi_link_hit_counter">Date Added</h3>
-  </div>
-
-  <div class="small-12 indi_link_desription_container">
-    <p class="indi_link_description">Description of the link</p>
+  </div> -->
+  <div class="small-3 columns indi_link_date_added_container">
+    <h3 class="indi_link_date_added_counter">Added: {{individualBookmark.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</h3>
   </div>
 
-  <div class="small-12">
+  <div class="small-12 columns indi_link_desription_container">
+    <p class="indi_link_description">individualBookmark.description</p>
+  </div>
+
+  <div class="small-12 columns">
     <div class="row comments_container">
-      <div class="small-6 comment_username" ></div>
-      <div class="small-6 comment_date"></div>
-      <div class="small-12 comment_body"></div>
+      <div class="small-6 columns comment_username" ></div>
+      <div class="small-6 columns comment_date"></div>
+      <div class="small-12 columns comment_body"></div>
     </div>
     <div class="row">
-      <div class="small-10 comment_input">
+      <div class="small-10 columns comment_input">
         <input type="text" placeholder="Your thoughts...">
       </div>
-      <div class="small-2 comment_submit">
+      <div class="small-2 columns comment_submit">
         <button type="button">Submit</button>
       </div>
     </div>

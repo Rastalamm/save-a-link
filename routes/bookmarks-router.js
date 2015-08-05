@@ -54,7 +54,8 @@ router.get('/:id', function (req, res){
   var bookmarkId = req.params.id;
   console.log (bookmarkId, 'bookmark iddd');
 
-  Bookmark.findOne({where : {id :bookmarkId}})
+  Bookmark.findOne({where : {id :bookmarkId},
+    include : [{model : Topic}]})
     .then(function (bookmark){
       res.json(bookmark)
   })
