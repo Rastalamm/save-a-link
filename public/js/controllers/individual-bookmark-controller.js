@@ -12,8 +12,6 @@ angular.module('myApp')
         console.log('get1bookmark err', err);
       })
 
-
-
       $scope.editBlur = function ($event){
         var inputField = $event.currentTarget.name;
         var inputData = $event.currentTarget.value;

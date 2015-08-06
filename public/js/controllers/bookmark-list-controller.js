@@ -66,7 +66,6 @@ angular.module('myApp')
         }
 
 
-
         $('.add_Bookmark_Form').hide();
 
         $('#add_bookmark_button').on('click', function(){
