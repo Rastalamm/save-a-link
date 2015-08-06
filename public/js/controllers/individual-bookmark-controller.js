@@ -12,22 +12,6 @@ angular.module('myApp')
         consol.log('get1bookmark err', err);
       })
 
-      $scope.deleteBookmark = function (){
-        var bookmarkId = $routeParams.id;
-
-        BookmarkService.deleteBookmark(bookmarkId)
-        .success(function (res){
-
-          if(res.deleted){
-            $location.path('/')
-          }
-
-        })
-        .error(function (err){
-          console.log('delete err', err)
-        })
-      }
-
 
 
       $scope.editBlur = function ($event){
@@ -59,4 +43,17 @@ angular.module('myApp')
         $http.put('/api/bookmarks/' + bookmarkId, updatedData)
       }
 
+      $scope.deleteBookmark = function (){
+        var bookmarkId = $routeParams.id;
+
+        BookmarkService.deleteBookmark(bookmarkId)
+        .success(function (res){
+          if(res.deleted){
+            $location.path('/')
+          }
+        })
+        .error(function (err){
+          console.log('delete err', err)
+        })
+      }
   }])

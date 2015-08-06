@@ -2,6 +2,15 @@
 @import "partials/foundation";
 
 $mainBackground : url('./assets/logo.png');
+$searchBackground : url('./assets/magnifying47.svg');
+
+
+
+
+
+
+
+
 
 // Media Queries
 $small : "only screen and (max-width: 640px)";
@@ -49,6 +58,18 @@ $large : "only screen and (min-width: 1025px)";
   }
 
 
+}
+
+#searchBookmark_input_field{
+  background-image: $searchBackground;
+  background-size: 13%;
+  background-repeat: no-repeat;
+  background-position-x: 110px;
+  background-position-y: center;
+}
+
+#searchBookmark_input_field:focus{
+  background-image: none;
 }
 
 #add_bookmark_button{
