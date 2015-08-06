@@ -59,5 +59,31 @@ router.get('/:id', function (req, res){
   })
 })
 
+
+router.put('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+  console.log (bookmarkId, 'bookmark iddd');
+
+  Bookmark.findOne({where : {id :bookmarkId},
+    include : [{model : Topic}]})
+    .then(function (bookmark){
+
+      console.log('what what found?', bookmark)
+      console.log('what to update?', req.body)
+      bookmark.updateAttributes({
+        title : req.body.title,
+        url : req.body.url,
+        description : req.body.description
+      })
+      .then(function (bookmark){
+        res.json(bookmark)
+
+      })
+
+
+  })
+})
+
+
 module.exports = router;
 
