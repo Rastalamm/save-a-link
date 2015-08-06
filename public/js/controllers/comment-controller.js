@@ -20,7 +20,6 @@ angular.module('myApp')
       $scope.addAComment = function (){
         CommentService.addAComment($scope.new_comment, $routeParams)
           .success(function (res){
-            console.log(res);
             $scope.comments.push(res);
           })
           .error(function (err){
@@ -41,7 +40,6 @@ angular.module('myApp')
 
       $scope.deleteAComment = function ($event){
         var commentId = $event.currentTarget.id;
-        console.log('event', $event.currentTarget.id);
         CommentService.deleteAComment(commentId)
         .success(function (res) {
           if(res.deleted){
