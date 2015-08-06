@@ -30,20 +30,6 @@
     <input name="description" type="text" ng-show="title_hidden" ng-model="individualBookmark.description" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
 
-  <div class="small-12 columns">
-    <div class="row comments_container">
-      <div class="small-6 columns comment_username" ></div>
-      <div class="small-6 columns comment_date"></div>
-      <div class="small-12 columns comment_body"></div>
-    </div>
-    <div class="row">
-      <div class="small-10 columns comment_input">
-        <input type="text" placeholder="Your thoughts...">
-      </div>
-      <div class="small-2 columns comment_submit">
-        <button type="button">Submit</button>
-      </div>
-    </div>
-  </div>
+  <div ng-include src="'views/comments.html'"></div>
 
 </div>

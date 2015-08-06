@@ -7,6 +7,24 @@ angular.module('myApp')
   .service('LogOutService', ['$http', LogOutService])
   .service('TopicService', ['$http', TopicService])
   .service('AuthService', ['$http', AuthService])
+  .service('CommentService', ['$http', CommentService])
+
+
+function CommentService($http){
+
+  this.showAllComments = function (){
+
+  }
+
+  this.addAComment = function (){
+
+  }
+
+  this.removeAComment = function (){
+    
+  }
+
+}
 
 function LogOutService($http){
   this.logUserOut = function (){
