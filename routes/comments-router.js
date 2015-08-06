@@ -83,22 +83,19 @@ router.post('/', function (req, res){
 //   })
 // })
 
-// router.delete('/:id', function (req, res){
-//   var bookmarkId = req.params.id;
+router.delete('/:id', function (req, res){
+  var commentId = req.params.id;
 
-//   Bookmark.findById(bookmarkId).then(function (bookmark){
-//     if(bookmark){
-//       bookmark.destroy().then(function (){
-//         res.json({deleted : true})
-//       })
-//     }else{
-//       res.json({deleted : false})
-//     }
-
-//   })
-
-
-// })
+  Comment.findById(commentId).then(function (comment){
+    if(comment){
+      comment.destroy().then(function (){
+        res.json({deleted : true, commentId : commentId})
+      })
+    }else{
+      res.json({deleted : false})
+    }
+  })
+})
 
 
 module.exports = router;
