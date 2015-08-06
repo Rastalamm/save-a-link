@@ -2,8 +2,8 @@
 
     <div class="small-12 columns">
       <div class="row comments_input_" ng-repeat="item in comments">
-        <div class="small-6 columns comment_username" ></div>
-        <div class="small-6 columns comment_date">Date</div>
+        <div class="small-6 columns comment_username">{{item.User.username}}</div>
+        <div class="small-6 columns comment_date">{{item.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</div>
         <div class="small-12 columns comment_body">{{item.body}}</div>
       </div>
 

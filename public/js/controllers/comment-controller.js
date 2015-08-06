@@ -10,6 +10,7 @@ angular.module('myApp')
         CommentService.addAComment($scope.new_comment, $routeParams)
           .success(function (res){
             console.log('Added a comment', res);
+            $scope.comments.push(res);
           })
           .error(function (err){
 
@@ -30,8 +31,6 @@ angular.module('myApp')
         })
 
 
-
-      //Add a comment
 
 
 

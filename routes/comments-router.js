@@ -5,6 +5,7 @@ var db = require('../models');
 var bodyParser = require('body-parser');
 
 var Comment = db.Comment;
+var User = db.User;
 var Bookmark = db.Bookmark;
 
 
@@ -20,7 +21,8 @@ router.get('/:id', function (req, res){
   console.log('Get list of all comments', bookmarkId);
 
 
-  Comment.findAll({where : {bookmark_id : bookmarkId}}).then(function (comments){
+  Comment.findAll({where : {bookmark_id : bookmarkId}, include : [{model : User, attributes : ['username']}]})
+  .then(function (comments){
 
     res.json(comments);
 
