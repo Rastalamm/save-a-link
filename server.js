@@ -4,6 +4,7 @@ var db = require('./models');
 var bookmarksRoute = require('./routes/bookmarks-router');
 var usersRoute = require('./routes/users-router');
 var topicsRoute = require('./routes/topics-router');
+var commentsRoute = require('./routes/comments-router');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
@@ -62,6 +63,7 @@ passport.use(new LocalStrategy(
 app.use('/api/users', usersRoute);
 app.use('/api/bookmarks', bookmarksRoute);
 app.use('/api/topics', topicsRoute);
+app.use('/api/comments', commentsRoute);
 
 
 

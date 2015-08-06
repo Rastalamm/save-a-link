@@ -13,15 +13,26 @@ angular.module('myApp')
 function CommentService($http){
 
   this.showAllComments = function (){
+    return $http.get('/api/comments/');
+  }
+
+  this.addAComment = function (comment, bookmark_id){
+     
+
+    var new_comment = {
+      body: comment.body,
+      user_id : sessionStorage.getItem('userId'),
+      bookmark_id : bookmark_id.id
+    }
+
+    console.log('Comment to be posted', new_comment);
+
+    return $http.post('/api/comments/', new_comment);
 
   }
 
-  this.addAComment = function (){
-
-  }
-
-  this.removeAComment = function (){
-    
+  this.deleteAComment = function (commentId){
+    return $http.delete('/api/comments/' + commentId);
   }
 
 }
