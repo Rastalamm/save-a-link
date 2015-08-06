@@ -48,6 +48,10 @@ function TopicService($http){
   this.getAllTopics = function (){
     return $http.get('/api/topics');
   }
+
+  this.addATopic = function (new_topic){
+    return $http.post('/api/topics', new_topic);
+  }
 }
 
 function BookmarkService($http){
