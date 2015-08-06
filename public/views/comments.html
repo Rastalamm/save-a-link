@@ -11,11 +11,18 @@
 
       <div class="row">
         <div class="small-10 columns comment_input">
-          <input ng-model="new_comment.body" type="text" placeholder="Your thoughts..." ng-keyup="submitKeyUp($event)">
-        </div>
-        <div class="small-2 columns comment_submit">
-          <button type="button" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>
-        </div>
+          <form name="add_a_comment_form">
+            <input name="comment_body" type="text" placeholder="Your thoughts..." ng-minlength="1" ng-maxlength="75" ng-model="new_comment.body" ng-keyup="submitKeyUp($event)">
+            <div ng-messages="add_a_comment_form.comment_body.$error" ng-show="add_a_comment_form.comment_body.$touched">
+              <p ng-message="minlength">I need to say something</p>
+              <p ng-message="maxlength">Your comment is too big</p>
+            </div>
+          </div>
+          <div class="small-2 columns comment_submit">
+            <button type="button" ng-disabled="add_a_comment_form.$invalid" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>
+          </div>
+
+          </form>
       </div>
     </div>
   </div>
