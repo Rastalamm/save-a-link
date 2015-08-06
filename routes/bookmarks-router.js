@@ -16,7 +16,6 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false}));
 
 
-
 router.get('/', function (req,res){
   console.log('Get list of all bookmarks');
   Bookmark.findAll({
@@ -28,7 +27,6 @@ router.get('/', function (req,res){
       throw err;
   });
 })
-
 
 router.post('/', function (req, res){
   Bookmark.create({

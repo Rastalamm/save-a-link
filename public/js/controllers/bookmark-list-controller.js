@@ -68,6 +68,10 @@ angular.module('myApp')
         $('#submit_new_link_button').on('click', function(){
           $('.add_Bookmark_Form').hide();
         })
+        $('#cancel_new_link_button').on('click', function(){
+          $('.add_Bookmark_Form').hide();
+        })
+
 
         $('.add_Topic_Form').hide();
 
