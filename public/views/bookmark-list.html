@@ -33,7 +33,7 @@
     </form>
   </div>
 
-  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks | filter:searchBookmark">
+  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks | filter:searchBookmark | orderBy:'-created_at'">
   <!-- Below href should go to the individual page -->
     <a ng-href="#/bookmarks/{{item.id}}">
 
