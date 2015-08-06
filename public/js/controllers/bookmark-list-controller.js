@@ -74,9 +74,6 @@ angular.module('myApp')
           $('.add_Topic_Form').hide();
         })
 
-
-
-
       }
 
     ])
