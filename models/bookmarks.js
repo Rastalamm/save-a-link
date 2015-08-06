@@ -17,6 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       associate : function(models){
         Bookmark.belongsTo(models.User, {foreignKey : 'user_id', foreignKeyConstraint:true});
         Bookmark.belongsTo(models.Topic, {foreignKey : 'topic_id', foreignKeyConstraint:true});
+        Bookmark.hasMany(models.Comment);
       }
     }
   });

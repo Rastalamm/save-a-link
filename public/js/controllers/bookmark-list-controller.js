@@ -8,6 +8,7 @@ angular.module('myApp')
         $scope.bookmarks = [];
         BookmarkService.getAllBookmarks()
         .success(function (res){
+          console.log('incoming bookmakrs', res);
           $scope.bookmarks = res;
         })
         .error(function (err){

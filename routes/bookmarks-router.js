@@ -20,7 +20,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 router.get('/', function (req,res){
   console.log('Get list of all bookmarks');
   Bookmark.findAll({
-    include : [{model : Topic}]
+    include : [{model : Topic}, {model : Comment}]
   }).then(function (bookmarks){
     res.json(bookmarks);
   }).catch(function (err) {
