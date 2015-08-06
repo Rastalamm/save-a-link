@@ -3428,13 +3428,27 @@ th.hide-for-touch {
   line-height: 38px;
   background-color: blue;
   border-radius: 50%;
-  border: 1px solid green;
+  border: 1px solid white;
   color: white;
   text-align: center;
   font-size: 3em;
   position: fixed;
   bottom: 0;
   left: 0; }
+
+#add_topic_button {
+  width: 50px;
+  height: 50px;
+  line-height: 38px;
+  background-color: green;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  font-size: 3em;
+  position: fixed;
+  bottom: 0;
+  right: 0; }
 
 .nav {
   position: fixed;

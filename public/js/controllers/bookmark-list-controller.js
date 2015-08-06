@@ -40,6 +40,21 @@ angular.module('myApp')
           console.log('err', err);
         })
 
+        $scope.addATopic = function (){
+          TopicService.addATopic ($scope.new_topic)
+          .success(function (res){
+            if(res.topicExists){
+              console.log('the topic exists');
+            }else{
+              console.log('new topic added', res);
+            }
+
+          })
+          .error(function (err){
+            console.log('add topic error', err);
+          })
+        }
+
 
         $('.add_Bookmark_Form').hide();
 
@@ -48,6 +63,15 @@ angular.module('myApp')
         });
         $('#submit_new_link_button').on('click', function(){
           $('.add_Bookmark_Form').hide();
+        })
+
+        $('.add_Topic_Form').hide();
+
+        $('#add_topic_button').on('click', function(){
+          $('.add_Topic_Form').show();
+        });
+        $('#submit_new_topic_button').on('click', function(){
+          $('.add_Topic_Form').hide();
         })
 
 
