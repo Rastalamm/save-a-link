@@ -9,10 +9,8 @@ angular.module('myApp')
         $scope.individualBookmark = res;
       })
       .error(function (err){
-        consol.log('get1bookmark err', err);
+        console.log('get1bookmark err', err);
       })
-
-
 
       $scope.editBlur = function ($event){
         var inputField = $event.currentTarget.name;
