@@ -2,7 +2,7 @@
 
   <div class="small-12 columns indi_link_heading_container">
     <h1 class="indi_link_heading">{{ individualBookmark.title }}</h1>
-    <input type="text" value="{{ individualBookmark.title }}">
+    <input name="title" type="text" ng-model="individualBookmark.title" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
 
   <div class="small-3 columns indi_link_url_container">

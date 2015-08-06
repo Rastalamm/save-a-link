@@ -12,4 +12,28 @@ angular.module('myApp')
       .error(function (){
 
       })
+
+      $scope.editBlur = function (){
+
+        sendEditRequest();
+      }
+
+      $scope.editKeyUp = function ($event){
+        console.log($event.currentTarget.name);
+
+        //13 is the enter key
+        if($event.keyCode === 13){
+          sendEditRequest();
+        }
+        console.log('event', $event.keyCode);
+      }
+
+      // function to send post req
+      function sendEditRequest (){
+
+        console.log('route', $routeParams.id)
+
+
+      }
+
   }])
