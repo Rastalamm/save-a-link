@@ -1,6 +1,6 @@
 <div class="entry_page_conatiner row" ng-controller="RegisterLoginController">
 
-  <div class="register_container small-6 columns">
+  <div class="register_container small-centered small-6 columns">
     <form name="register" novalidate>
       <h2>Register</h2>
       <h1>{{registerMessage}}</h1>
@@ -9,12 +9,14 @@
       <button type="button" ng-click="createUser(new_user)">Register</button>
     </form>
 
-
+  <div id="register_to_login_link">
+    <h3>Already registered? Login here!</h3>
+  </div>
 
 
   </div>
 
-  <div class="login_container small-6 columns">
+  <div class="login_container small-6 small-centered columns">
     <form action="">
       <h2>Login</h2>
       <h1>{{loginMessage}}</h1>
@@ -22,6 +24,12 @@
       Password: <input type="text" placeholder="Password" ng-model="login_user.password"><br />
       <button type="button" ng-click="loginUser(login_user)">Login</button>
     </form>
+
+  <div id="login_to_register_link">
+    <h3>Don't have an account? Register Today!</h3>
+  </div>
+
+
   </div>
 
 

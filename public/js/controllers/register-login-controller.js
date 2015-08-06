@@ -37,8 +37,19 @@ angular.module('myApp')
         .error(function (err) {
           console.log('ERROR', err);
         })
-
       }
+
+      $('.register_container').hide();
+
+      $('#login_to_register_link').on('click', function (){
+        $('.login_container').hide();
+        $('.register_container').show();
+      })
+
+      $('#register_to_login_link').on('click', function (){
+        $('.login_container').show();
+        $('.register_container').hide();
+      })
 
     }
   ])
