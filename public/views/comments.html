@@ -1,0 +1,21 @@
+  <div class="comments_conainer" ng-controller="CommentController">
+    <h1>Comments</h1>
+    <div class="small-12 columns">
+      <div class="row comments_input_" ng-repeat="item in comments">
+        <div class="small-6 columns comment_username">{{item.User.username}}</div>
+        <div class="small-6 columns comment_date">{{item.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</div>
+        <div class="small-12 columns comment_body" ng-mouseenter="delete_comment_hidden = true" ng-mouseleave="delete_comment_hidden = false">{{item.body}}
+          <div id="{{item.id}}" class="comment_delete" ng-show="delete_comment_hidden" ng-click="deleteAComment($event)">D</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-10 columns comment_input">
+          <input ng-model="new_comment.body" type="text" placeholder="Your thoughts..." ng-keyup="submitKeyUp($event)" ng-blur="submitBlur($event)">
+        </div>
+        <div class="small-2 columns comment_submit">
+          <button type="button" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>

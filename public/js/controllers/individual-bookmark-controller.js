@@ -17,7 +17,6 @@ angular.module('myApp')
       $scope.editBlur = function ($event){
         var inputField = $event.currentTarget.name;
         var inputData = $event.currentTarget.value;
-
         sendEditRequest(inputField, inputData);
       }
 
@@ -37,7 +36,6 @@ angular.module('myApp')
 
         var bookmarkId = $routeParams.id;
         var updatedData = {}
-
         updatedData[inputField] = inputData
 
         $http.put('/api/bookmarks/' + bookmarkId, updatedData)
@@ -56,4 +54,5 @@ angular.module('myApp')
           console.log('delete err', err)
         })
       }
+
   }])

@@ -3461,3 +3461,9 @@ th.hide-for-touch {
       border: 1px solid black; }
     .each_bookmark_container .bookmark_content_container .bookmark_description_container {
       border: 1px solid black; }
+
+.comment_delete {
+  width: 25px;
+  height: 25px;
+  float: right;
+  background-color: red; }
