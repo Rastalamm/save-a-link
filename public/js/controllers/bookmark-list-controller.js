@@ -22,7 +22,6 @@ angular.module('myApp')
           .success(function (res){
             console.log('sucess', res);
             $scope.bookmarks.push(res)
-
           })
           .error(function (err){
             console.log('err', err);
@@ -33,7 +32,6 @@ angular.module('myApp')
         $scope.topics = [];
         TopicService.getAllTopics()
         .success(function (res){
-
           $scope.topics = res;
         })
         .error(function (err){
@@ -48,12 +46,25 @@ angular.module('myApp')
             }else{
               console.log('new topic added', res);
             }
-
           })
           .error(function (err){
             console.log('add topic error', err);
           })
         }
+
+        $scope.submitTopicBlur = function ($event){
+          $scope.addATopic ($scope.new_topic)
+          $scope.new_topic = null;
+        }
+
+        $scope.submitTopicKeyUp = function ($event){
+          //13 is the enter key
+          if($event.keyCode === 13){
+            $scope.addATopic ($scope.new_topic)
+            $scope.new_topic = null;
+          }
+        }
+
 
 
         $('.add_Bookmark_Form').hide();

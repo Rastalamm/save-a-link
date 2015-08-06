@@ -7,12 +7,10 @@
 
   <div class="add_Topic_Form">
     <form>
-      Topic: <input type="text" ng-model="new_topic.name">
+      Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)" ng-blur="submitTopicBlur($event)">
       <button type='button' id="submit_new_topic_button" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button>
     </form>
   </div>
-
-
 
 
 
@@ -25,6 +23,8 @@
       Title: <input type="text" placeholder="Add title" ng-model='new_bookmark.title' required>
       Link: <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url' required>
       Describe: <input type="text" placeholder="Describe" ng-model='new_bookmark.description' required>
+      <!-- Add A Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)" ng-blur="submitTopicBlur($event)">
+      <button type='button' id="submit_new_topic_button" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button><br /> -->
       Choose A Topic: <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
         <option value="">-- choose a topic--</option>
       </select>
