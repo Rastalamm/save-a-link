@@ -1,8 +1,18 @@
+<!-- Shows the filter bar
 <div ng-include src="'views/filter-bar.html'"></div>
-
+ -->
 <div class="row" id="all_bookmark_container" ng-controller="BookmarksController">
 
+<!--   <div class="row search_bookmarks_container">
+    <div class="small-2 columns search_bookmarks_">
+      <label for="searchBookmark">Search</label>
+      <input type="text" id="searchBookmark_input_field" ng-model="searchBookmark">
+    </div>
+  </div> -->
+
+
   <div id="add_bookmark_button">+</div>
+
   <!-- for each bookmark create the below div structure -->
 
   <div class="add_Bookmark_Form">
@@ -17,7 +27,7 @@
     </form>
   </div>
 
-  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks">
+  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks | filter:searchBookmark">
   <!-- Below href should go to the individual page -->
     <a ng-href="#/bookmarks/{{item.id}}">
 

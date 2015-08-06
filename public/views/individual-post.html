@@ -1,41 +1,35 @@
 <div class="row indi_link_container" ng-controller="IndividualBookmarkController">
 
-  <div class="small-12 columns indi_link_heading_container">
-    <h1 class="indi_link_heading">{{ individualBookmark.title }}</h1>
-    <input type="text" value="{{ individualBookmark.title }}">
+  <div>
+    <button ng-click="title_hidden = true">Edit</button>
+    <button ng-show="title_hidden" ng-click="title_hidden = false">Cancel</button>
+    <button ng-show="title_hidden" ng-click="deleteBookmark()">Delete</button>
   </div>
 
-  <div class="small-3 columns indi_link_url_container">
-    <a href="#" class="indi_link_topic">{{individualBookmark.url}}</a>
+  <div class="small-12 columns indi_link_heading_container">
+    <h1 class="indi_link_heading" ng-hide="title_hidden">{{ individualBookmark.title }}</h1>
+    <input ng-show="title_hidden" name="title" type="text" ng-model="individualBookmark.title" ng-keyup="editKeyUp($event)" ng-blur="editBlur($event)">
   </div>
-  <div class="small-3 columns indi_link_topic_container">
+
+  <div class="small-4 columns indi_link_url_container">
+    <a ng-hide="title_hidden" ng-href="{{individualBookmark.url}}" class="indi_link_topic">{{individualBookmark.url}}</a>
+    <input name="url" type="text" ng-show="title_hidden" ng-model="individualBookmark.url" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
+  </div>
+  <div class="small-4 columns indi_link_topic_container">
     <h3 class="indi_link_topic">Topic: {{ individualBookmark.Topic.name }}</h3>
   </div>
-<!--   <div class="small-3 columns indi_link_me_you_container">
+<!--   <div class="small-4 columns indi_link_me_you_container">
     <h2 class="indi_link_me_you_slider">Me/You Switch</h2>
   </div> -->
-  <div class="small-3 columns indi_link_date_added_container">
+  <div class="small-4 columns indi_link_date_added_container">
     <h3 class="indi_link_date_added_counter">Added: {{individualBookmark.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</h3>
   </div>
 
-  <div class="small-12 columns indi_link_desription_container">
-    <p class="indi_link_description">{{individualBookmark.description}}</p>
+  <div class="small-12 columns indi_link_desription_container" >
+    <p class="indi_link_description" ng-hide="title_hidden">{{individualBookmark.description}}</p>
+    <input name="description" type="text" ng-show="title_hidden" ng-model="individualBookmark.description" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
 
-  <div class="small-12 columns">
-    <div class="row comments_container">
-      <div class="small-6 columns comment_username" ></div>
-      <div class="small-6 columns comment_date"></div>
-      <div class="small-12 columns comment_body"></div>
-    </div>
-    <div class="row">
-      <div class="small-10 columns comment_input">
-        <input type="text" placeholder="Your thoughts...">
-      </div>
-      <div class="small-2 columns comment_submit">
-        <button type="button">Submit</button>
-      </div>
-    </div>
-  </div>
+  <div ng-include src="'views/comments.html'"></div>
 
 </div>

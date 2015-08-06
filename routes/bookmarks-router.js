@@ -54,10 +54,46 @@ router.get('/:id', function (req, res){
 
   Bookmark.findOne({where : {id :bookmarkId},
     include : [{model : Topic}]})
-    .then(function (bookmark){
-      res.json(bookmark)
+  .then(function (bookmark){
+    res.json(bookmark)
   })
 })
+
+
+router.put('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+
+  Bookmark.findOne({where : {id :bookmarkId},
+    include : [{model : Topic}]})
+  .then(function (bookmark){
+    bookmark.updateAttributes({
+      title : req.body.title,
+      url : req.body.url,
+      description : req.body.description
+    })
+    .then(function (bookmark){
+      res.json(bookmark)
+    })
+  })
+})
+
+router.delete('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+
+  Bookmark.findById(bookmarkId).then(function (bookmark){
+    if(bookmark){
+      bookmark.destroy().then(function (){
+        res.json({deleted : true})
+      })
+    }else{
+      res.json({deleted : false})
+    }
+
+  })
+
+
+})
+
 
 module.exports = router;
 
