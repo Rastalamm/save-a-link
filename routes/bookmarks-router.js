@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 
 var Bookmark = db.Bookmark;
 var Topic = db.Topic;
+var Comment = db.Comment;
+
 
 
 db.sequelize.sync();
@@ -20,14 +22,11 @@ router.get('/', function (req,res){
   Bookmark.findAll({
     include : [{model : Topic}]
   }).then(function (bookmarks){
-
     res.json(bookmarks);
-
   }).catch(function (err) {
       res.json(err);
       throw err;
   });
-
 })
 
 

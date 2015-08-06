@@ -8,7 +8,6 @@ angular.module('myApp')
         $scope.bookmarks = [];
         BookmarkService.getAllBookmarks()
         .success(function (res){
-
           $scope.bookmarks = res;
         })
         .error(function (err){
@@ -18,7 +17,6 @@ angular.module('myApp')
         $scope.addABookmark = function(){
 
           BookmarkService.addABookmark($scope.new_bookmark)
-
           .success(function (res){
             console.log('sucess', res);
             $scope.bookmarks.push(res)
