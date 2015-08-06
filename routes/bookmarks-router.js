@@ -54,33 +54,26 @@ router.get('/:id', function (req, res){
 
   Bookmark.findOne({where : {id :bookmarkId},
     include : [{model : Topic}]})
-    .then(function (bookmark){
-      res.json(bookmark)
+  .then(function (bookmark){
+    res.json(bookmark)
   })
 })
 
 
 router.put('/:id', function (req, res){
   var bookmarkId = req.params.id;
-  console.log (bookmarkId, 'bookmark iddd');
 
   Bookmark.findOne({where : {id :bookmarkId},
     include : [{model : Topic}]})
+  .then(function (bookmark){
+    bookmark.updateAttributes({
+      title : req.body.title,
+      url : req.body.url,
+      description : req.body.description
+    })
     .then(function (bookmark){
-
-      console.log('what what found?', bookmark)
-      console.log('what to update?', req.body)
-      bookmark.updateAttributes({
-        title : req.body.title,
-        url : req.body.url,
-        description : req.body.description
-      })
-      .then(function (bookmark){
-        res.json(bookmark)
-
-      })
-
-
+      res.json(bookmark)
+    })
   })
 })
 

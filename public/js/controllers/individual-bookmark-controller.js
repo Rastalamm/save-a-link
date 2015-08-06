@@ -3,7 +3,7 @@
 angular.module('myApp')
   .controller('IndividualBookmarkController', ['$scope', '$routeParams', 'BookmarkService', '$http',
     function ($scope, $routeParams, BookmarkService, $http){
-      // $scope.bookmarkId = $routeParams.bookmarks;
+
       BookmarkService.getOneBookmark($routeParams.id)
       .success(function (res){
 
@@ -14,7 +14,6 @@ angular.module('myApp')
       })
 
       $scope.editBlur = function ($event){
-
         var inputField = $event.currentTarget.name;
         var inputData = $event.currentTarget.value;
 
@@ -22,18 +21,15 @@ angular.module('myApp')
       }
 
       $scope.editKeyUp = function ($event){
-
         var inputField = $event.currentTarget.name;
         var inputData = $event.currentTarget.value;
 
-        console.log('value', $event.currentTarget.value);
         //13 is the enter key
         if($event.keyCode === 13){
           sendEditRequest(inputField, inputData);
         }
       }
 
-      // function to send put req
       function sendEditRequest (inputField, inputData){
 
         $scope.title_hidden = false;
@@ -44,8 +40,7 @@ angular.module('myApp')
         updatedData[inputField] = inputData
 
         $http.put('/api/bookmarks/' + bookmarkId, updatedData)
-
-        console.log('updatedData', updatedData);
-        // console.log('route', $routeParams.id)
       }
+
+
   }])
