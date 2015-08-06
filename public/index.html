@@ -10,13 +10,25 @@
 
   <div class="row" id="header_row">
     <a ng-href="#/">
-      <div class="logo small-4 columns" id="logo_container">
+      <div class="logo small-3 columns" id="logo_container">
         <h1 class="hide">Save A Link</h1>
       </div>
     </a>
-      <div class="small-8 columns">
-        <h1 id="header_text">Keep track of the best resources on the web!</h1>
-      </div>
+    <div class="small-7 columns">
+      <h1 id="header_text">
+        {{HEADING}}
+      </h1>
+    </div>
+
+
+    <div class="small-2 columns search_bookmarks_container">
+      <label id="searchBookmark_label" for="searchBookmark">Search</label>
+      <input type="text" id="searchBookmark_input_field" ng-model="searchBookmark">
+    </div>
+
+
+
+
   </div>
 
 

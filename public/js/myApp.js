@@ -35,6 +35,9 @@ angular.module('myApp', [
         var routeSafe = !$.inArray($location.path(),whiteList);//boolean - is route safe or protected
         var loggedIn = AuthService.checkLoginStatus().then(function (res){
           console.log('loggin in', res);
+
+        $rootScope.HEADING = "Keep track of the best resources on the web!"
+
           if((!res.data.authenticated && !routeSafe) || !res.data.authenticated) {
             $location.path('/register');
             console.log('in here');
@@ -43,6 +46,7 @@ angular.module('myApp', [
             console.log('EVery time');
             sessionStorage.setItem('username', res.data.user.username);
             sessionStorage.setItem('userId', res.data.user.id);
+            $rootScope.HEADING = res.data.user.username + "'s Bookmarks";
           }
 
         });//boolean - if user is logged in
