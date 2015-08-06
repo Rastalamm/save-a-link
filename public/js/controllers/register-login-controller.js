@@ -11,7 +11,6 @@ angular.module('myApp')
         .success(function (res){
           console.log('response', res);
           if(res){
-
             $scope.registerMessage = 'success'
           }else{
             $scope.registerMessage = 'Username has been taken'
@@ -31,7 +30,7 @@ angular.module('myApp')
             // $scope.loginMessage = 'success'
             $location.path('/');
           }else{
-            $scope.loginMessage = 'something not working'
+            $scope.loginMessage = 'Username or Password is incorrect'
           }
         })
         .error(function (err) {

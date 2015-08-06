@@ -2,7 +2,8 @@
 
 angular.module('myApp', [
   'ngRoute',
-  'angularMoment'
+  'angularMoment',
+  'ngMessages'
   ])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
