@@ -39,7 +39,6 @@ angular.module('myApp')
           console.log('showing comments err', err)
         })
 
-
       $scope.deleteAComment = function ($event){
         var commentId = $event.currentTarget.id;
         console.log('event', $event.currentTarget.id);
@@ -59,10 +58,4 @@ angular.module('myApp')
         })
       }
 
-
-
-      // $scope.deleteAComment = function (){
-      //   var commentId = //something to get comment id
-      //   CommentService.deleteAComment(commentId);
-      // }
   }])
