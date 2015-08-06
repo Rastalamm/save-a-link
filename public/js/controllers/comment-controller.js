@@ -7,10 +7,29 @@ angular.module('myApp')
       // CommentService.showAllComments
 
       $scope.addAComment = function (){
-        CommentService.addAComment($scope.new_comment, $routeParams);
-      }
+        CommentService.addAComment($scope.new_comment, $routeParams)
+          .success(function (res){
+            console.log('Added a comment', res);
+          })
+          .error(function (err){
 
+          })
+      }
       //show a comment
+      $scope.CommentService = CommentService;
+      $scope.comments = [];
+
+      CommentService.showAllComments($routeParams)
+        .success(function (res){
+          console.log('incoming comments', res);
+
+          $scope.comments = res
+        })
+        .error(function (err){
+          console.log('showing comments err', err)
+        })
+
+
 
       //Add a comment
 

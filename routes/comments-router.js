@@ -15,20 +15,21 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
 
 
-// router.get('/', function (req,res){
-//   console.log('Get list of all bookmarks');
-//   Bookmark.findAll({
-//     include : [{model : Topic}]
-//   }).then(function (bookmarks){
+router.get('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+  console.log('Get list of all comments', bookmarkId);
 
-//     res.json(bookmarks);
 
-//   }).catch(function (err) {
-//       res.json(err);
-//       throw err;
-//   });
+  Comment.findAll({where : {bookmark_id : bookmarkId}}).then(function (comments){
 
-// })
+    res.json(comments);
+
+  }).catch(function (err) {
+      res.json(err);
+      throw err;
+  });
+
+})
 
 
 router.post('/', function (req, res){
@@ -36,10 +37,9 @@ router.post('/', function (req, res){
   console.log('New comment req', req.body)
 
   Comment.create({
-
     body : req.body.body,
     user_id : req.user.id,
-    bookmar_id : req.user_id
+    bookmark_id : req.body.bookmark_id
   }).then(function (comment){
 
     Comment.findOne({where : {id :comment.id}})

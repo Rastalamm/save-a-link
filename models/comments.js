@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods : {
       associate : function(models){
         Comment.belongsTo(models.User, {foreignKey : 'user_id'});
-        Comment.belongsTo(models.Bookmark, {foreignKey : 'topic_id'});
+        Comment.belongsTo(models.Bookmark, {foreignKey : 'bookmark_id'});
       }
     }
   });

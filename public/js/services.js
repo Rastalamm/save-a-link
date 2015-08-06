@@ -12,13 +12,16 @@ angular.module('myApp')
 
 function CommentService($http){
 
-  this.showAllComments = function (){
-    return $http.get('/api/comments/');
+  this.showAllComments = function (bookmarkId){
+
+    var bookmark_id = bookmarkId.id;
+    console.log('show me bookmark_id', bookmark_id);
+
+    return $http.get('/api/comments/' + bookmark_id);
   }
 
   this.addAComment = function (comment, bookmark_id){
      
-
     var new_comment = {
       body: comment.body,
       user_id : sessionStorage.getItem('userId'),
