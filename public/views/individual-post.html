@@ -1,12 +1,18 @@
 <div class="row indi_link_container" ng-controller="IndividualBookmarkController">
 
+  <div>
+    <button ng-click="title_hidden = true">Edit</button>
+    <button ng-show="title_hidden" ng-click="title_hidden = false">Cancel</button>
+  </div>
+
   <div class="small-12 columns indi_link_heading_container">
-    <h1 class="indi_link_heading">{{ individualBookmark.title }}</h1>
-    <input name="title" type="text" ng-model="individualBookmark.title" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
+    <h1 class="indi_link_heading" ng-hide="title_hidden">{{ individualBookmark.title }}</h1>
+    <input ng-show="title_hidden" name="title" type="text" ng-model="individualBookmark.title" ng-keyup="editKeyUp($event)" ng-blur="editBlur($event)">
   </div>
 
   <div class="small-3 columns indi_link_url_container">
-    <a href="#" class="indi_link_topic">{{individualBookmark.url}}</a>
+    <a ng-hide="title_hidden" ng-href="{{individualBookmark.url}}" class="indi_link_topic">{{individualBookmark.url}}</a>
+    <input name="url" type="text" ng-show="title_hidden" ng-model="individualBookmark.url" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
   <div class="small-3 columns indi_link_topic_container">
     <h3 class="indi_link_topic">Topic: {{ individualBookmark.Topic.name }}</h3>
@@ -18,8 +24,9 @@
     <h3 class="indi_link_date_added_counter">Added: {{individualBookmark.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</h3>
   </div>
 
-  <div class="small-12 columns indi_link_desription_container">
-    <p class="indi_link_description">{{individualBookmark.description}}</p>
+  <div class="small-12 columns indi_link_desription_container" >
+    <p class="indi_link_description" ng-hide="title_hidden">{{individualBookmark.description}}</p>
+    <input name="description" type="text" ng-show="title_hidden" ng-model="individualBookmark.description" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
 
   <div class="small-12 columns">

@@ -13,7 +13,7 @@ angular.module('myApp')
 
       })
 
-      $scope.editBlur = function (){
+      $scope.editBlur = function ($event){
 
         var inputField = $event.currentTarget.name;
         var inputData = $event.currentTarget.value;
@@ -35,6 +35,8 @@ angular.module('myApp')
 
       // function to send put req
       function sendEditRequest (inputField, inputData){
+
+        $scope.title_hidden = false;
 
         var bookmarkId = $routeParams.id;
         var updatedData = {}
