@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="small-10 columns comment_input">
-          <input ng-model="new_comment.body" type="text" placeholder="Your thoughts..." ng-keyup="submitKeyUp($event)" ng-blur="submitBlur($event)">
+          <input ng-model="new_comment.body" type="text" placeholder="Your thoughts..." ng-keyup="submitKeyUp($event)">
         </div>
         <div class="small-2 columns comment_submit">
           <button type="button" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>

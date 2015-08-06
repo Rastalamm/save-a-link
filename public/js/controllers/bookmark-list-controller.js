@@ -51,11 +51,6 @@ angular.module('myApp')
           })
         }
 
-        $scope.submitTopicBlur = function ($event){
-          $scope.addATopic ($scope.new_topic)
-          $scope.new_topic = null;
-        }
-
         $scope.submitTopicKeyUp = function ($event){
           //13 is the enter key
           if($event.keyCode === 13){

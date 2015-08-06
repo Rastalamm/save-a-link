@@ -7,7 +7,7 @@
 
   <div class="add_Topic_Form">
     <form>
-      Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)" ng-blur="submitTopicBlur($event)">
+      Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)">
       <button type='button' id="submit_new_topic_button" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button>
     </form>
   </div>
