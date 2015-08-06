@@ -77,6 +77,23 @@ router.put('/:id', function (req, res){
   })
 })
 
+router.delete('/:id', function (req, res){
+  var bookmarkId = req.params.id;
+
+  Bookmark.findById(bookmarkId).then(function (bookmark){
+    if(bookmark){
+      bookmark.destroy().then(function (){
+        res.json({deleted : true})
+      })
+    }else{
+      res.json({deleted : false})
+    }
+
+  })
+
+
+})
+
 
 module.exports = router;
 

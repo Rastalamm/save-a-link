@@ -1,17 +1,34 @@
 'use strict'
 
 angular.module('myApp')
-  .controller('IndividualBookmarkController', ['$scope', '$routeParams', 'BookmarkService', '$http',
-    function ($scope, $routeParams, BookmarkService, $http){
+  .controller('IndividualBookmarkController', ['$scope', '$routeParams', 'BookmarkService', '$http', '$location',
+    function ($scope, $routeParams, BookmarkService, $http, $location){
 
       BookmarkService.getOneBookmark($routeParams.id)
       .success(function (res){
-
         $scope.individualBookmark = res;
       })
-      .error(function (){
-
+      .error(function (err){
+        consol.log('get1bookmark err', err);
       })
+
+      $scope.deleteBookmark = function (){
+        var bookmarkId = $routeParams.id;
+
+        BookmarkService.deleteBookmark(bookmarkId)
+        .success(function (res){
+
+          if(res.deleted){
+            $location.path('/')
+          }
+
+        })
+        .error(function (err){
+          console.log('delete err', err)
+        })
+      }
+
+
 
       $scope.editBlur = function ($event){
         var inputField = $event.currentTarget.name;
@@ -41,6 +58,5 @@ angular.module('myApp')
 
         $http.put('/api/bookmarks/' + bookmarkId, updatedData)
       }
-
 
   }])

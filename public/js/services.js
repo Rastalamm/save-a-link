@@ -56,6 +56,10 @@ function BookmarkService($http){
 
   }
 
+  this.deleteBookmark = function (bookmarkId){
+    return $http.delete('/api/bookmarks/' + bookmarkId)
+  }
+
 }
 
   function RegisterService($http){
