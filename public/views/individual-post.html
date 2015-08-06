@@ -11,17 +11,17 @@
     <input ng-show="title_hidden" name="title" type="text" ng-model="individualBookmark.title" ng-keyup="editKeyUp($event)" ng-blur="editBlur($event)">
   </div>
 
-  <div class="small-3 columns indi_link_url_container">
+  <div class="small-4 columns indi_link_url_container">
     <a ng-hide="title_hidden" ng-href="{{individualBookmark.url}}" class="indi_link_topic">{{individualBookmark.url}}</a>
     <input name="url" type="text" ng-show="title_hidden" ng-model="individualBookmark.url" ng-keyup="editKeyUp($event)" ng-blur="editBlur()">
   </div>
-  <div class="small-3 columns indi_link_topic_container">
+  <div class="small-4 columns indi_link_topic_container">
     <h3 class="indi_link_topic">Topic: {{ individualBookmark.Topic.name }}</h3>
   </div>
-<!--   <div class="small-3 columns indi_link_me_you_container">
+<!--   <div class="small-4 columns indi_link_me_you_container">
     <h2 class="indi_link_me_you_slider">Me/You Switch</h2>
   </div> -->
-  <div class="small-3 columns indi_link_date_added_container">
+  <div class="small-4 columns indi_link_date_added_container">
     <h3 class="indi_link_date_added_counter">Added: {{individualBookmark.created_at | amDateFormat: 'MMM D YY, h:mm a'}}</h3>
   </div>
 

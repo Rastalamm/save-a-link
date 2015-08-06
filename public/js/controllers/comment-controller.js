@@ -4,28 +4,34 @@ angular.module('myApp')
   .controller('CommentController', ['$scope', '$routeParams', 'CommentService',
     function ($scope, $routeParams, CommentService){
 
-      // CommentService.showAllComments
+      $scope.submitBlur = function ($event){
+        $scope.addAComment($scope.new_comment, $routeParams)
+        $scope.new_comment = null;
+      }
+
+      $scope.submitKeyUp = function ($event){
+        //13 is the enter key
+        if($event.keyCode === 13){
+          $scope.addAComment($scope.new_comment, $routeParams)
+          $scope.new_comment = null;
+        }
+      }
 
       $scope.addAComment = function (){
         CommentService.addAComment($scope.new_comment, $routeParams)
           .success(function (res){
-            console.log('Added a comment', res);
-            // res.User = {};
-            // res.User['username'] = sessionStorage.getItem('username');
             $scope.comments.push(res);
           })
           .error(function (err){
 
           })
       }
+
       //show a comment
       $scope.CommentService = CommentService;
       $scope.comments = [];
-
       CommentService.showAllComments($routeParams)
         .success(function (res){
-          console.log('incoming comments', res);
-
           $scope.comments = res
         })
         .error(function (err){

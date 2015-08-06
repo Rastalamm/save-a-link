@@ -11,27 +11,18 @@ angular.module('myApp')
 
 
 function CommentService($http){
-
   this.showAllComments = function (bookmarkId){
-
     var bookmark_id = bookmarkId.id;
-    console.log('show me bookmark_id', bookmark_id);
-
     return $http.get('/api/comments/' + bookmark_id);
   }
 
   this.addAComment = function (comment, bookmark_id){
-     
     var new_comment = {
       body: comment.body,
       user_id : sessionStorage.getItem('userId'),
       bookmark_id : bookmark_id.id
     }
-
-    console.log('Comment to be posted', new_comment);
-
     return $http.post('/api/comments/', new_comment);
-
   }
 
   this.deleteAComment = function (commentId){
@@ -48,7 +39,7 @@ function LogOutService($http){
 
 function AuthService($http){
   this.checkLoginStatus = function(){
-     return $http.get('/api/users/verify');
+    return $http.get('/api/users/verify');
   }
 }
 
@@ -62,20 +53,14 @@ function TopicService($http){
 function BookmarkService($http){
 
   this.getAllBookmarks = function(){
-
     return $http.get('/api/bookmarks');
-
   }
 
   this.getOneBookmark = function(bookmarkId){
-    console.log('service consoleof id', bookmarkId);
     return $http.get('/api/bookmarks/' + bookmarkId);
   }
 
   this.addABookmark = function(bookmark){
-
-    console.log('want to add this', bookmark);
-
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
@@ -83,42 +68,30 @@ function BookmarkService($http){
       user_id : sessionStorage.getItem('userId'),
       topic_id : bookmark.topic.id
     }
-
     return $http.post('/api/bookmarks', new_bookmark);
-
   }
 
   this.deleteBookmark = function (bookmarkId){
     return $http.delete('/api/bookmarks/' + bookmarkId)
   }
-
 }
 
-  function RegisterService($http){
-
-    this.createUser = function (new_user){
-
-      console.log('new_user', new_user);
-      var new_register = {
-        username : new_user.username,
-        password : new_user.password
-      };
-
-      return $http.post('/api/users/register', new_register);
-    }
+function RegisterService($http){
+  this.createUser = function (new_user){
+    var new_register = {
+      username : new_user.username,
+      password : new_user.password
+    };
+    return $http.post('/api/users/register', new_register);
   }
+}
 
-  function LoginService($http){
-
-    this.loginUser = function (login_user){
-
-      var user_login = {
-        username : login_user.username,
-        password : login_user.password
-      };
-      console.log('user nlogin', user_login);
-
-      return $http.post('/api/users/login', user_login);
-    }
-
+function LoginService($http){
+  this.loginUser = function (login_user){
+    var user_login = {
+      username : login_user.username,
+      password : login_user.password
+    };
+    return $http.post('/api/users/login', user_login);
   }
+}
