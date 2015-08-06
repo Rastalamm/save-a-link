@@ -10,6 +10,8 @@ angular.module('myApp')
         CommentService.addAComment($scope.new_comment, $routeParams)
           .success(function (res){
             console.log('Added a comment', res);
+            // res.User = {};
+            // res.User['username'] = sessionStorage.getItem('username');
             $scope.comments.push(res);
           })
           .error(function (err){

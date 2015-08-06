@@ -21,7 +21,8 @@ router.get('/:id', function (req, res){
   console.log('Get list of all comments', bookmarkId);
 
 
-  Comment.findAll({where : {bookmark_id : bookmarkId}, include : [{model : User, attributes : ['username']}]})
+  Comment.findAll({where : {bookmark_id : bookmarkId},
+    include : [{model : User, attributes : ['username']}]})
   .then(function (comments){
 
     res.json(comments);
@@ -36,15 +37,17 @@ router.get('/:id', function (req, res){
 
 router.post('/', function (req, res){
 
-  console.log('New comment req', req.body)
+  console.log('New comment req', req.user)
 
   Comment.create({
     body : req.body.body,
-    user_id : req.user.id,
+    user_id : req.body.user_id,
+    // username : req.body.username,Z
     bookmark_id : req.body.bookmark_id
   }).then(function (comment){
 
-    Comment.findOne({where : {id :comment.id}})
+    Comment.findOne({where : {id :comment.id},
+      include : [{model : User, attributes : ['username']}]})
     .then(function (comment){
       res.json(comment);
     })
