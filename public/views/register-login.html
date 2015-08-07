@@ -1,27 +1,50 @@
 <div class="entry_page_conatiner row" ng-controller="RegisterLoginController">
 
-  <div class="register_container small-6 columns">
-    <form name="register" novalidate>
+  <div class="register_container small-centered small-6 columns">
+    <form name="registerForm">
       <h2>Register</h2>
       <h1>{{registerMessage}}</h1>
-      Username: <input type="text" placeholder="Username"  ng-model="new_user.username" ng-minlength="3" ng-maxlength="12" required /><br />
-      Password: <input type="password" placeholder="Password"  ng-model="new_user.password" ng-minlength="5" required /><br />
-      <button type="button" ng-click="createUser(new_user)">Register</button>
+      Username: <input name="username" type="text" placeholder="Username" required ng-model="new_user.username" ng-minlength="3" ng-maxlength="12" autocomplete="off">
+      <div ng-messages="registerForm.username.$error" ng-show="registerForm.username.$touched">
+        <p ng-message="minlength">Username too short</p>
+        <p ng-message="maxlength">Username too long</p>
+        <p ng-message="required">Username is required</p>
+      </div>
+      Password: <input name="password" type="password" placeholder="Password" required ng-minlength="6" ng-model="new_user.password">
+      <div ng-messages="registerForm.password.$error" ng-show="registerForm.password.$touched">
+        <p ng-message="minlength">Password too short</p>
+        <p ng-message="required">Password is required</p>
+      </div>
+      <button type="button" ng-disabled="registerForm.$invalid" ng-click="createUser(new_user)">Register</button>
     </form>
 
-
+  <div id="register_to_login_link">
+    <h3>Already registered? Login here!</h3>
+  </div>
 
 
   </div>
 
-  <div class="login_container small-6 columns">
-    <form action="">
+  <div class="login_container small-6 small-centered columns">
+    <form name="loginForm">
       <h2>Login</h2>
       <h1>{{loginMessage}}</h1>
-      Username: <input type="text" placeholder="Username" ng-model="login_user.username"><br />
-      Password: <input type="text" placeholder="Password" ng-model="login_user.password"><br />
-      <button type="button" ng-click="loginUser(login_user)">Login</button>
+      Username: <input type="text" placeholder="Username" required ng-model="login_user.username">
+      <div ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
+        <p ng-message="required">Username is required</p>
+      </div>
+      Password: <input required type="password" placeholder="Password" ng-model="login_user.password">
+      <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched">
+        <p ng-message="required">Password is required</p>
+      </div>
+      <button type="button" ng-disabled="loginForm.$invalid" ng-click="loginUser(login_user)">Login</button>
     </form>
+
+  <div id="login_to_register_link">
+    <h3>Don't have an account? Register Today!</h3>
+  </div>
+
+
   </div>
 
 

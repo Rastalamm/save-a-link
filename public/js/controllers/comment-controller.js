@@ -4,11 +4,6 @@ angular.module('myApp')
   .controller('CommentController', ['$scope', '$routeParams', 'CommentService',
     function ($scope, $routeParams, CommentService){
 
-      $scope.submitBlur = function ($event){
-        $scope.addAComment($scope.new_comment, $routeParams)
-        $scope.new_comment = null;
-      }
-
       $scope.submitKeyUp = function ($event){
         //13 is the enter key
         if($event.keyCode === 13){

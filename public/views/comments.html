@@ -10,12 +10,17 @@
       </div>
 
       <div class="row">
-        <div class="small-10 columns comment_input">
-          <input ng-model="new_comment.body" type="text" placeholder="Your thoughts..." ng-keyup="submitKeyUp($event)" ng-blur="submitBlur($event)">
-        </div>
-        <div class="small-2 columns comment_submit">
-          <button type="button" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>
-        </div>
+        <div class="small-12 columns comment_input">
+          <form name="add_a_comment_form" novalidate>
+            <input name="comment_body" type="text" required placeholder="Your thoughts..." ng-minlength="1" ng-maxlength="75" ng-model="new_comment.body" ng-keyup="submitKeyUp($event)">
+            <div ng-messages="add_a_comment_form.comment_body.$error" ng-show="add_a_comment_form.comment_body.$touched">
+              <p ng-message="required">You need to say something</p>
+              <p ng-message="minlength">You need to say something</p>
+              <p ng-message="maxlength">Your comment is too big</p>
+            </div>
+          </div>
+            <button type="button" ng-disabled="add_a_comment_form.$invalid" ng-click="addAComment(new_comment); new_comment = null;" >Submit</button>
+          </form>
       </div>
     </div>
   </div>

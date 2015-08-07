@@ -6,33 +6,59 @@
   <div id="add_topic_button">+</div>
 
   <div class="add_Topic_Form">
-    <form>
-      Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)" ng-blur="submitTopicBlur($event)">
-      <button type='button' id="submit_new_topic_button" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button>
+    <form name="add_topic_form" novalidate>
+      Topic: <input name="topic" type="text" required ng-minlength="3" ng-maxlength="15" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)">
+      <div ng-messages="add_topic_form.topic.$error" ng-show="add_topic_form.title.$touched">
+        <p ng-message="required">Topic name is required</p>
+        <p ng-message="minlength">Topic name too short</p>
+        <p ng-message="maxlength">Topic name too short</p>
+      </div>
+      <button type='button' id="submit_new_topic_button" ng-disabled="add_topic_form.$invalid" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button>
     </form>
   </div>
-
-
 
   <div id="add_bookmark_button">+</div>
 
   <!-- for each bookmark create the below div structure -->
 
   <div class="add_Bookmark_Form">
-    <form>
-      Title: <input type="text" placeholder="Add title" ng-model='new_bookmark.title' required>
-      Link: <input type="text" placeholder="Add the URL" ng-model='new_bookmark.url' required>
-      Describe: <input type="text" placeholder="Describe" ng-model='new_bookmark.description' required>
-      <!-- Add A Topic: <input type="text" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)" ng-blur="submitTopicBlur($event)">
-      <button type='button' id="submit_new_topic_button" ng-click='addATopic(new_topic); new_topic = null;'>Submit</button><br /> -->
-      Choose A Topic: <select name="topic" ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
+    <form name="add_Bookmark_form" novalidate>
+      Title: <input name="title" type="text" placeholder="Add title" required ng-minlength="3" ng-maxlength="30" autocomplete="off" ng-model='new_bookmark.title'>
+      <div ng-messages="add_Bookmark_form.title.$error" ng-show="add_Bookmark_form.title.$touched">
+        <p ng-message="minlength">Title too short</p>
+        <p ng-message="maxlength">Title too long</p>
+        <p ng-message="required">Title is required</p>
+      </div>
+
+      Link: <input name="link" type="url" placeholder="Add the URL" autocomplete="off" required ng-model='new_bookmark.url'>
+      <div ng-messages="add_Bookmark_form.link.$error" ng-show="add_Bookmark_form.link.$touched">
+        <p ng-message="required">A Link is required</p>
+        <p ng-message="url">Needs to be a valid URL</p>
+      </div>
+
+
+      Describe: <input name="description" type="text" placeholder="Describe" required ng-maxlength="300" autcomplete="off" ng-model='new_bookmark.description' >
+      <div ng-messages="add_Bookmark_form.description.$error" ng-show="add_Bookmark_form.description.$touched">
+        <p ng-message="maxlength">Description too long</p>
+        <p ng-message="required">Description is required</p>
+      </div>
+
+
+
+      Choose A Topic: <select name="topic" required ng-model="new_bookmark.topic" ng-options="topic.name for topic in topics">
         <option value="">-- choose a topic--</option>
       </select>
-      <button type='button' id="submit_new_link_button" ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+      <div ng-messages="add_Bookmark_form.topic.$error" ng-show="add_Bookmark_form.topic.$touched">
+        <p ng-message="required">Topic is required</p>
+      </div>
+
+
+      <button type='button' id="submit_new_link_button" ng-disabled="add_Bookmark_form.$invalid" ng-click='addABookmark(new_bookmark); new_bookmark = null;'>Submit</button>
+      <button id="cancel_new_link_button" type="button">Cancel</button>
     </form>
   </div>
 
-  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks | filter:searchBookmark">
+  <div class="small-12 columns each_bookmark_container" ng-repeat="item in bookmarks | filter:searchBookmark | orderBy:'-created_at'">
   <!-- Below href should go to the individual page -->
     <a ng-href="#/bookmarks/{{item.id}}">
 
@@ -55,7 +81,7 @@
             Added: {{item.created_at | amDateFormat: 'MMM D YY, h:mm a'}}
           </div>
           <div class="small-2 columns bookmark_comment_count_container">
-            100 Comments
+            Comments: {{item.Comments.length || '0'}}
           </div>
           <div class="small-12 columns bookmark_description_container">
             <p class="bookmark_description">{{item.description}}</p>

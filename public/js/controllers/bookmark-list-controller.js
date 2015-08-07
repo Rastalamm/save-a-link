@@ -8,6 +8,7 @@ angular.module('myApp')
         $scope.bookmarks = [];
         BookmarkService.getAllBookmarks()
         .success(function (res){
+          console.log('incoming bookmakrs', res);
           $scope.bookmarks = res;
         })
         .error(function (err){
@@ -50,11 +51,6 @@ angular.module('myApp')
           })
         }
 
-        $scope.submitTopicBlur = function ($event){
-          $scope.addATopic ($scope.new_topic)
-          $scope.new_topic = null;
-        }
-
         $scope.submitTopicKeyUp = function ($event){
           //13 is the enter key
           if($event.keyCode === 13){
@@ -72,6 +68,10 @@ angular.module('myApp')
         $('#submit_new_link_button').on('click', function(){
           $('.add_Bookmark_Form').hide();
         })
+        $('#cancel_new_link_button').on('click', function(){
+          $('.add_Bookmark_Form').hide();
+        })
+
 
         $('.add_Topic_Form').hide();
 

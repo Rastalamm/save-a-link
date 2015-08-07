@@ -2,7 +2,8 @@
 
 angular.module('myApp', [
   'ngRoute',
-  'angularMoment'
+  'angularMoment',
+  'ngMessages'
   ])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider){
@@ -34,7 +35,6 @@ angular.module('myApp', [
         var whiteList   = ['/register']; //the login is the only unguarded route - everything else needs to check session auth
         var routeSafe = !$.inArray($location.path(),whiteList);//boolean - is route safe or protected
         var loggedIn = AuthService.checkLoginStatus().then(function (res){
-          console.log('loggin in', res);
 
         $rootScope.HEADING = "Keep track of the best resources on the web!"
 
