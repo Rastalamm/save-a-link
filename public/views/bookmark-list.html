@@ -6,7 +6,7 @@
   <div id="add_topic_button">+</div>
 
   <div class="add_Topic_Form">
-    <form name="add_topic_form">
+    <form name="add_topic_form" novalidate>
       Topic: <input name="topic" type="text" required ng-minlength="3" ng-maxlength="15" ng-model="new_topic.name" ng-keyup="submitTopicKeyUp($event)">
       <div ng-messages="add_topic_form.topic.$error" ng-show="add_topic_form.title.$touched">
         <p ng-message="required">Topic name is required</p>
@@ -17,14 +17,12 @@
     </form>
   </div>
 
-
-
   <div id="add_bookmark_button">+</div>
 
   <!-- for each bookmark create the below div structure -->
 
   <div class="add_Bookmark_Form">
-    <form name="add_Bookmark_form">
+    <form name="add_Bookmark_form" novalidate>
       Title: <input name="title" type="text" placeholder="Add title" required ng-minlength="3" ng-maxlength="30" autocomplete="off" ng-model='new_bookmark.title'>
       <div ng-messages="add_Bookmark_form.title.$error" ng-show="add_Bookmark_form.title.$touched">
         <p ng-message="minlength">Title too short</p>
