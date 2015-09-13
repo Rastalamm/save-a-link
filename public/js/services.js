@@ -65,6 +65,7 @@ function BookmarkService($http){
   }
 
   this.addABookmark = function(bookmark){
+    console.log('THE ID', bookmark.topic.id);
     var new_bookmark = {
       title : bookmark.title,
       url : bookmark.url,
@@ -72,6 +73,7 @@ function BookmarkService($http){
       user_id : sessionStorage.getItem('userId'),
       topic_id : bookmark.topic.id
     }
+
     return $http.post('/api/bookmarks', new_bookmark);
   }
 
